@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEE Solved Exam Guide - Mid2</title>
+    <title>BEE Solved Exam Guide - Complete</title>
     <style>
         /* Base Styles and Attractive Font */
         body {
@@ -15,7 +15,7 @@
         }
         .container {
             width: 95%;
-            max-width: 900px;
+            max-width: 950px;
             margin: 30px auto;
             padding: 30px;
             background-color: #ffffff;
@@ -51,14 +51,6 @@
             border-top: 1px dashed #ccc;
             border-bottom: 1px dashed #ccc;
         }
-        .header-info span {
-            padding: 0 10px;
-        }
-        .roll-no {
-            color: #d9534f; /* Highlight Roll No in a striking color */
-            font-size: 1.2em;
-            font-weight: bold;
-        }
 
         /* Section Styles */
         .question-section {
@@ -83,12 +75,11 @@
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             background-color: #ffffff;
-            transition: all 0.3s ease;
         }
         .question p {
             font-weight: 600;
             margin-bottom: 10px;
-            font-size: 1.1em;
+            font-size: 1.05em;
             color: #2c3e50;
         }
         
@@ -104,8 +95,11 @@
         .option-group label:hover {
             background-color: #e9f2ff;
         }
-        input[type="text"], input[type="radio"] {
-            margin-right: 8px;
+        input[type="text"] {
+            padding: 8px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         .check-btn {
             padding: 8px 15px;
@@ -147,10 +141,6 @@
             padding: 5px;
             border-radius: 3px;
         }
-        .match-label {
-            display: inline-block;
-            width: 150px;
-        }
 
         /* Matching Table Styles */
         .matching-table {
@@ -186,8 +176,8 @@
 
         /* Subjective Question Styles */
         .subjective-question {
-            margin-bottom: 20px;
-            padding: 15px;
+            margin-bottom: 30px;
+            padding: 18px;
             border-left: 5px solid #ffc107; /* Highlight with yellow border */
             background-color: #fff9e6;
             border-radius: 8px;
@@ -196,27 +186,26 @@
             color: #c08703;
             margin-top: 0;
             margin-bottom: 10px;
-            font-size: 1.3em;
+            font-size: 1.4em;
+            border-bottom: 1px dashed #ffd700;
+            padding-bottom: 5px;
         }
         .subjective-question strong {
             color: #0056b3;
         }
-        .subjective-question ul {
-            list-style-type: none;
-            padding-left: 0;
+        .subjective-question ol {
+            padding-left: 20px;
         }
         .subjective-question li {
             margin-bottom: 8px;
-            padding-left: 1.2em;
-            text-indent: -1.2em;
+            line-height: 1.4;
         }
-        .subjective-question li::before {
-            content: '•';
-            color: #007bff;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-right: 0.2em;
+        .section-header {
+            font-weight: 700;
+            color: #d9534f;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.1em;
         }
     </style>
 </head>
@@ -225,12 +214,12 @@
 <div class="container">
     <header>
         <h1>BHARAT INSTITUTE OF ENGINEERING & TECHNOLOGY</h1>
-        <p>"I B.Tech. I Sem. **SOLVED GUIDE**</p>
+        <p>"FACULTY:  G.NAGARJUNA ,I B.Tech. I Sem.**SOLVED GUIDE (Full Coverage)**</p>
     </header>
 
     <div class="header-info">
         <span>Subject Code No: EE101BS</span>
-        <span>Subject name : BEE/IEE Objective & Subjective </span>
+        <span>Subject name : BEE/IEE Objective & Subjective</span>
     </div>
 
     <div id="questionsContainer">
@@ -243,9 +232,9 @@
                 <p>1. A single-phase induction motor is generally not self-starting because:</p>
                 <div class="option-group" data-answer="A">
                     <label><input type="radio" name="q1" value="A"> A) It produces a non-rotating field</label>
-                    <label><input type="radio" name="q1" value="B"> B) It operates at high slip</label>
-                    <label><input type="radio" name="q1" value="C"> C) It has low resistance</label>
-                    <label><input type="radio" name="q1" value="D"> D) Its rotor is short-circuited</label>
+                    <label><input type="radio" name="q1" value="B"> B) high slip</label>
+                    <label><input type="radio" name="q1" value="C"> C) low resistance</label>
+                    <label><input type="radio" name="q1" value="D"> D) Its rotor is shored</label>
                 </div>
                 <button type="button" class="check-btn" onclick="checkMCQ('q1')">Check Answer</button>
                 <div class="feedback" id="feedback-q1"></div>
@@ -276,39 +265,208 @@
             </div>
             
             <div class="question" id="q4">
-                <p>4. The efficiency of a transformer is maximum when:</p>
-                <div class="option-group" data-answer="B">
-                    <label><input type="radio" name="q4" value="A"> A) Copper losses are zero</label>
-                    <label><input type="radio" name="q4" value="B"> B) Core losses equal Copper losses</label>
-                    <label><input type="radio" name="q4" value="C"> C) Core losses are zero</label>
-                    <label><input type="radio" name="q4" value="D"> D) Core losses equal Iron losses</label>
+                <p>4. Which machine's performance is defined by its torque-slip characteristic?</p>
+                <div class="option-group" data-answer="D">
+                    <label><input type="radio" name="q4" value="A"> A) DC Shunt Motor</label>
+                    <label><input type="radio" name="q4" value="B"> B) transformer</label>
+                    <label><input type="radio" name="q4" value="C"> C) Synchronous Generator</label>
+                    <label><input type="radio" name="q4" value="D"> D) 3-Phase Induction Motor</label>
                 </div>
                 <button type="button" class="check-btn" onclick="checkMCQ('q4')">Check Answer</button>
                 <div class="feedback" id="feedback-q4"></div>
             </div>
+            
              <div class="question" id="q5">
-                <p>5. The unit of Reactive Power is:</p>
-                <div class="option-group" data-answer="B">
-                    <label><input type="radio" name="q5" value="A"> A) Watt (W)</label>
-                    <label><input type="radio" name="q5" value="B"> B) Volt-Ampere Reactive (VAR)</label>
-                    <label><input type="radio" name="q5" value="C"> C) Volt-Ampere (VA)</label>
-                    <label><input type="radio" name="q5" value="D"> D) Ohm</label>
+                <p>5. The relation between line voltage ($V_L$) and phase voltage ($V_{ph}$) in a Star connection is:</p>
+                <div class="option-group" data-answer="A">
+                    <label><input type="radio" name="q5" value="A"> A) $V_L = 1.732V_{ph}$</label>
+                    <label><input type="radio" name="q5" value="B"> B) $V_L = 3 V_{ph}$</label>
+                    <label><input type="radio" name="q5" value="C"> C) $V_L = V_{ph}$</label>
+                    <label><input type="radio" name="q5" value="D"> D) none</label>
                 </div>
                 <button type="button" class="check-btn" onclick="checkMCQ('q5')">Check Answer</button>
                 <div class="feedback" id="feedback-q5"></div>
             </div>
+            
             <div class="question" id="q6">
-                <p>6. Power factor is defined as the ratio of:</p>
-                <div class="option-group" data-answer="C">
-                    <label><input type="radio" name="q6" value="A"> A) Reactive power to Apparent power</label>
-                    <label><input type="radio" name="q6" value="B"> B) Real power to Reactive power</label>
-                    <label><input type="radio" name="q6" value="C"> C) Real power to Apparent power</label>
-                    <label><input type="radio" name="q6" value="D"> D) Apparent power to Real power</label>
+                <p>6. Which component is primarily used to detect earth leakage current?</p>
+                <div class="option-group" data-answer="B">
+                    <label><input type="radio" name="q6" value="A"> A) SFU</label>
+                    <label><input type="radio" name="q6" value="B"> B) ELCB</label>
+                    <label><input type="radio" name="q6" value="C"> C) MLCB</label>
+                    <label><input type="radio" name="q6" value="D"> D) MCCB</label>
                 </div>
                 <button type="button" class="check-btn" onclick="checkMCQ('q6')">Check Answer</button>
                 <div class="feedback" id="feedback-q6"></div>
             </div>
             
+            <div class="question" id="q7">
+                <p>7. The unit of reactive power is:</p>
+                <div class="option-group" data-answer="B">
+                    <label><input type="radio" name="q7" value="A"> A) Watt (W)</label>
+                    <label><input type="radio" name="q7" value="B"> B) Volt-Ampere Reactive (VAR)</label>
+                    <label><input type="radio" name="q7" value="C"> C) Volt-Ampere (VA)</label>
+                    <label><input type="radio" name="q7" value="D"> D) Ohm</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q7')">Check Answer</button>
+                <div class="feedback" id="feedback-q7"></div>
+            </div>
+            
+            <div class="question" id="q8">
+                <p>8. An auto-transformer has:</p>
+                <div class="option-group" data-answer="D">
+                    <label><input type="radio" name="q8" value="A"> A) Two separate windings</label>
+                    <label><input type="radio" name="q8" value="B"> B) No core</label>
+                    <label><input type="radio" name="q8" value="C"> C) Three windings</label>
+                    <label><input type="radio" name="q8" value="D"> D) A single winding</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q8')">Check Answer</button>
+                <div class="feedback" id="feedback-q8"></div>
+            </div>
+            
+            <div class="question" id="q9">
+                <p>9. The purpose of using an MCB is to provide protection against:</p>
+                <div class="option-group" data-answer="A">
+                    <label><input type="radio" name="q9" value="A"> A) Over current and short circuit</label>
+                    <label><input type="radio" name="q9" value="B"> B) Low voltage</label>
+                    <label><input type="radio" name="q9" value="C"> C) Power factor correction</label>
+                    <label><input type="radio" name="q9" value="D"> D) Radio interference</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q9')">Check Answer</button>
+                <div class="feedback" id="feedback-q9"></div>
+            </div>
+            
+            <div class="question" id="q10">
+                <p>10. Batteries store energy in which form?</p>
+                <div class="option-group" data-answer="C">
+                    <label><input type="radio" name="q10" value="A"> A) Thermal</label>
+                    <label><input type="radio" name="q10" value="B"> B) Mechanical</label>
+                    <label><input type="radio" name="q10" value="C"> C) Chemical</label>
+                    <label><input type="radio" name="q10" value="D"> D) Nuclear</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q10')">Check Answer</button>
+                <div class="feedback" id="feedback-q10"></div>
+            </div>
+            
+            <div class="question" id="q11">
+                <p>11. The starting torque of a single-phase induction motor is typically:</p>
+                <div class="option-group" data-answer="B">
+                    <label><input type="radio" name="q11" value="A"> A) High</label>
+                    <label><input type="radio" name="q11" value="B"> B) Zero</label>
+                    <label><input type="radio" name="q11" value="C"> C) Equal to the running torque</label>
+                    <label><input type="radio" name="q11" value="D"> D) Variable</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q11')">Check Answer</button>
+                <div class="feedback" id="feedback-q11"></div>
+            </div>
+            
+            <div class="question" id="q12">
+                <p>12. Power factor is defined as the ratio of:</p>
+                <div class="option-group" data-answer="C">
+                    <label><input type="radio" name="q12" value="A"> A) Reactive power to Apparent power</label>
+                    <label><input type="radio" name="q12" value="B"> B) Real power to Reactive power</label>
+                    <label><input type="radio" name="q12" value="C"> C) Real power to Apparent power</label>
+                    <label><input type="radio" name="q12" value="D"> D) Apparent power to Real power</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q12')">Check Answer</button>
+                <div class="feedback" id="feedback-q12"></div>
+            </div>
+
+            <div class="question" id="q13">
+                <p>13. In a transformer, the winding which is connected to the supply source is called:</p>
+                <div class="option-group" data-answer="C">
+                    <label><input type="radio" name="q13" value="A"> A) Secondary winding</label>
+                    <label><input type="radio" name="q13" value="B"> B) High voltage winding</label>
+                    <label><input type="radio" name="q13" value="C"> C) Primary winding</label>
+                    <label><input type="radio" name="q13" value="D"> D) Tertiary winding</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q13')">Check Answer</button>
+                <div class="feedback" id="feedback-q13"></div>
+            </div>
+            
+            <div class="question" id="q14">
+                <p>14. The synchronous speed ($N_s$) of an induction motor is determined by:</p>
+                <div class="option-group" data-answer="B">
+                    <label><input type="radio" name="q14" value="A"> A) Rotor speed and slip</label>
+                    <label><input type="radio" name="q14" value="B"> B) Supply frequency and number of poles</label>
+                    <label><input type="radio" name="q14" value="C"> C) Load and torque</label>
+                    <label><input type="radio" name="q14" value="D"> D) Stator current and voltage</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q14')">Check Answer</button>
+                <div class="feedback" id="feedback-q14"></div>
+            </div>
+            
+            <div class="question" id="q15">
+                <p>15. The relation between line current ($I_L$) and phase current ($I_{ph}$) in a Delta ($\Delta$) connection is:</p>
+                <div class="option-group" data-answer="B">
+                    <label><input type="radio" name="q15" value="A"> A) $I_L = I_{ph}$</label>
+                    <label><input type="radio" name="q15" value="B"> B) $I_L = 1.732 I_{ph}$</label>
+                    <label><input type="radio" name="q15" value="C"> C) $I_L = 3 I_{ph}$</label>
+                    <label><input type="radio" name="q15" value="D"> D) $I_L = I_{ph} / 1.732$</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q15')">Check Answer</button>
+                <div class="feedback" id="feedback-q15"></div>
+            </div>
+            
+             <div class="question" id="q16">
+                <p>16. Which safety device is designed to interrupt the flow of current in case of an overload or short circuit?</p>
+                <div class="option-group" data-answer="C">
+                    <label><input type="radio" name="q16" value="A"> A) Voltmeter</label>
+                    <label><input type="radio" name="q16" value="B"> B) Energy Meter</label>
+                    <label><input type="radio" name="q16" value="C"> C) Fuse</label>
+                    <label><input type="radio" name="q16" value="D"> D) Capacitor</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q16')">Check Answer</button>
+                <div class="feedback" id="feedback-q16"></div>
+            </div>
+            
+            <div class="question" id="q17">
+                <p>17. The unit of Apparent Power is:</p>
+                <div class="option-group" data-answer="A">
+                    <label><input type="radio" name="q17" value="A"> A) Volt-Ampere (VA)</label>
+                    <label><input type="radio" name="q17" value="B"> B) Watt (W)</label>
+                    <label><input type="radio" name="q17" value="C"> C) Ohm</label>
+                    <label><input type="radio" name="q17" value="D"> D) Joule</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q17')">Check Answer</button>
+                <div class="feedback" id="feedback-q17"></div>
+            </div>
+            
+            <div class="question" id="q18">
+                <p>18. The efficiency of a transformer is maximum when:</p>
+                <div class="option-group" data-answer="B">
+                    <label><input type="radio" name="q18" value="A"> A) Copper losses are zero</label>
+                    <label><input type="radio" name="q18" value="B"> B) Core losses equal Copper losses</label>
+                    <label><input type="radio" name="q18" value="C"> C) Core losses are zero</label>
+                    <label><input type="radio" name="q18" value="D"> D) Core losses equal Iron losses</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q18')">Check Answer</button>
+                <div class="feedback" id="feedback-q18"></div>
+            </div>
+            
+            <div class="question" id="q19">
+                <p>19. Which device provides protection against fire hazards due to electric faults?</p>
+                <div class="option-group" data-answer="B">
+                    <label><input type="radio" name="q19" value="A"> A) Ammeter</label>
+                    <label><input type="radio" name="q19" value="B"> B) ELCB</label>
+                    <label><input type="radio" name="q19" value="C"> C) Laminated core</label>
+                    <label><input type="radio" name="q19" value="D"> D) Cable ties</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q19')">Check Answer</button>
+                <div class="feedback" id="feedback-q19"></div>
+            </div>
+
+            <div class="question" id="q20">
+                <p>20. An ampere-hour (Ah) rating of a battery indicates its:</p>
+                <div class="option-group" data-answer="D">
+                    <label><input type="radio" name="q20" value="A"> A) Voltage capacity</label>
+                    <label><input type="radio" name="q20" value="B"> B) Power output</label>
+                    <label><input type="radio" name="q20" value="C"> C) Energy storage capacity</label>
+                    <label><input type="radio" name="q20" value="D"> D) Current output over time</label>
+                </div>
+                <button type="button" class="check-btn" onclick="checkMCQ('q20')">Check Answer</button>
+                <div class="feedback" id="feedback-q20"></div>
+            </div>
         </div>
 
         <div class="question-section">
@@ -316,34 +474,52 @@
             <p>Enter your answer and click 'Check Answer' to see the correct term.</p>
             <div id="fib-questions">
                 <div class="question" id="q21">
-                    <p>1. The Cosine of the angle between voltage and current is known as:</p>
+                    <p>1. The Cosine of the angle between voltage and current is known as _______________</p>
                     <input type="text" name="q21-fib" id="q21-fib" placeholder="Enter answer here">
                     <button type="button" class="check-btn" onclick="checkFIB('q21', 'Power Factor')">Check Answer</button>
                     <div class="feedback" id="feedback-q21"></div>
                 </div>
                 <div class="question" id="q22">
-                    <p>2. The EMF induced in a transformer secondary winding is known as:</p>
+                    <p>2. The EMF induced in a transformer secondary winding is is known as ____________</p>
                     <input type="text" name="q22-fib" id="q22-fib" placeholder="Enter answer here">
-                    <button type="button" class="check-btn" onclick="checkFIB('q22', 'Secondary Induced Voltage')">Check Answer</button>
+                    <button type="button" class="check-btn" onclick="checkFIB('q22', 'Secondary EMF / Induced Voltage')">Check Answer</button>
                     <div class="feedback" id="feedback-q22"></div>
                 </div>
                 <div class="question" id="q23">
-                    <p>3. The rotor of a three-phase induction motor always rotates at a speed ____________ its synchronous speed.</p>
+                    <p>3. The Flux produced by pole core in a DC machine is uniformly distributed by _________________</p>
                     <input type="text" name="q23-fib" id="q23-fib" placeholder="Enter answer here">
-                    <button type="button" class="check-btn" onclick="checkFIB('q23', 'less than')">Check Answer</button>
+                    <button type="button" class="check-btn" onclick="checkFIB('q23', 'Shaping the Pole Shoes / Air Gap')">Check Answer</button>
                     <div class="feedback" id="feedback-q23"></div>
                 </div>
                 <div class="question" id="q24">
-                    <p>4. The ELCB stands for:</p>
+                    <p>4. The Three phase induction motor works on the principle of _____________________</p>
                     <input type="text" name="q24-fib" id="q24-fib" placeholder="Enter answer here">
-                    <button type="button" class="check-btn" onclick="checkFIB('q24', 'Earth Leakage Circuit Breaker')">Check Answer</button>
+                    <button type="button" class="check-btn" onclick="checkFIB('q24', 'Electromagnetic Induction / Rotating Magnetic Field')">Check Answer</button>
                     <div class="feedback" id="feedback-q24"></div>
                 </div>
                 <div class="question" id="q25">
-                    <p>5. The transfer of electrical energy from one circuit to another without a change in frequency is the basic function of a _______________.</p>
+                    <p>5. The ELCB stands for ________________________________________________________________</p>
                     <input type="text" name="q25-fib" id="q25-fib" placeholder="Enter answer here">
-                    <button type="button" class="check-btn" onclick="checkFIB('q25', 'Transformer')">Check Answer</button>
+                    <button type="button" class="check-btn" onclick="checkFIB('q25', 'Earth Leakage Circuit Breaker')">Check Answer</button>
                     <div class="feedback" id="feedback-q25"></div>
+                </div>
+                <div class="question" id="q26">
+                    <p>6. The sine of the angle between voltage and current is used to calculate the ______________________________ power.</p>
+                    <input type="text" name="q26-fib" id="q26-fib" placeholder="Enter answer here">
+                    <button type="button" class="check-btn" onclick="checkFIB('q26', 'Reactive')">Check Answer</button>
+                    <div class="feedback" id="feedback-q26"></div>
+                </div>
+                <div class="question" id="q27">
+                    <p>7. The purpose of a commutator in a DC machine is to convert AC induced in the armature to DC in the external circuit, which is known as ______________________________. (The conversion process)</p>
+                    <input type="text" name="q27-fib" id="q27-fib" placeholder="Enter answer here">
+                    <button type="button" class="check-btn" onclick="checkFIB('q27', 'Rectification')">Check Answer</button>
+                    <div class="feedback" id="feedback-q27"></div>
+                </div>
+                <div class="question" id="q28">
+                    <p>8. The rotor of a three-phase induction motor always rotates at a speed ______________________ its synchronous speed.</p>
+                    <input type="text" name="q28-fib" id="q28-fib" placeholder="Enter answer here">
+                    <button type="button" class="check-btn" onclick="checkFIB('q28', 'less than')">Check Answer</button>
+                    <div class="feedback" id="feedback-q28"></div>
                 </div>
             </div>
         </div>
@@ -352,7 +528,7 @@
             <h2>III. Match the Following</h2>
             <p>Match the concepts in Column A with the correct Value/Type in Column B. Select your match and click 'Check Matches'.</p>
             
-            <h3 style="color:#0056b3;">Set A</h3>
+            <h3 style="color:#0056b3;">Set A (Based on I B.Tech Set 1A)</h3>
             <table class="matching-table" id="match-table-a">
                 <thead>
                     <tr><th>Column A (Concept)</th><th>Your Match</th><th>Column B (Value/Type)</th><th>Feedback</th></tr>
@@ -377,15 +553,15 @@
                         <td><span class="match-feedback" id="match-feedback-33"></span></td>
                     </tr>
                     <tr data-correct-match="d">
-                        <td>4. Ohmic Losses</td>
+                        <td>4. Ohmic/Copper Losses</td>
                         <td><select name="match-q34" id="match-q34"><option value="">Select...</option><option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option></select></td>
                         <td>d. Variable losses ($I^2R$)</td>
                         <td><span class="match-feedback" id="match-feedback-34"></span></td>
                     </tr>
                     <tr data-correct-match="e">
-                        <td>5. ELCB (Primary Function)</td>
+                        <td>5. MCB/ELCB Function</td>
                         <td><select name="match-q35" id="match-q35"><option value="">Select...</option><option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option></select></td>
-                        <td>e. Protection against Earth Fault (Leakage Current)</td>
+                        <td>e. Protection against electric shock (or Over current/Short circuit)</td>
                         <td><span class="match-feedback" id="match-feedback-35"></span></td>
                     </tr>
                 </tbody>
@@ -394,89 +570,200 @@
         </div>
 
         <div class="question-section">
-            <h2>IV. Important Subjective Questions & Study Guide</h2>
-            <p>Brief definitions, steps, or explanation outlines for key long-answer questions.</p>
+            <h2>IV. Important Subjective & Numerical Questions</h2>
+            <p>Brief definitions, suggested steps for solutions, and explanation outlines for key long-answer questions.</p>
 
             <div class="subjective-question">
-                <h3>1. Derive the EMF Equation of a Single-Phase Transformer.</h3>
-                <ul>
-                    <li>**Brief Definition:** The EMF equation relates the voltage induced in the primary and secondary windings to the frequency and maximum flux in the core.</li>
-                    <li>**Suggested Steps:**
-                        <ol>
-                            <li>Start with Faraday's Law of Electromagnetic Induction: $e = -N \frac{d\Phi}{dt}$.</li>
-                            <li>Assume flux ($\Phi$) is sinusoidal: $\Phi = \Phi_{m} \sin(\omega t)$, where $\omega = 2\pi f$.</li>
-                            <li>Differentiate $\Phi$ to find instantaneous EMF ($e$).</li>
-                            <li>Find the maximum value of EMF ($E_{max}$).</li>
-                            <li>Calculate the RMS value ($E$) by dividing $E_{max}$ by $\sqrt{2}$.</li>
-                            <li>Final Result: **$E_{RMS} = 4.44 f \Phi_{m} N$** (where $N$ is the number of turns).</li>
-                        </ol>
-                    </li>
-                </ul>
+                <h3>1. Series R-L-C Circuit Calculation [Numerical]</h3>
+                <p>A series circuit has R = 10 $\Omega$, L = 0.1 H, and C = 100 $\mu$F. Calculate the **impedance** and the **power factor** when connected to a 230 V, 50 Hz AC supply.</p>
+                <div class="section-header">Suggested Steps for Solution:</div>
+                <ol>
+                    <li>Calculate the inductive reactance: **$X_L = 2\pi f L$** ($f=50 Hz, L=0.1 H$).</li>
+                    <li>Calculate the capacitive reactance: **$X_C = 1/(2\pi f C)$** ($C=100 \times 10^{-6} F$).</li>
+                    <li>Calculate the net reactance: **$X = X_L - X_C$**.</li>
+                    <li>Calculate the Impedance: **$Z = \sqrt{R^2 + X^2}$** ($\Omega$).</li>
+                    <li>Calculate the Power Factor: **$PF = \cos \Phi = R/Z$** (Leading or lagging based on $X_C$ vs $X_L$).</li>
+                </ol>
+            </div>
+
+            <div class="subjective-question">
+                <h3>2. Transformer Turns Calculation (EMF/Turn) [Numerical]</h3>
+                <p>The maximum flux density in the core of 250/3000 Volts 50 Hz single phase transformer is 1.2 Wb/m$^2$. If the **EMF per turn is 8V**, determine primary and secondary turns.</p>
+                <div class="section-header">Suggested Steps for Solution:</div>
+                <ol>
+                    <li>**Formula:** Since EMF per turn ($E_t$) is constant, $E_t = V_1 / N_1 = V_2 / N_2$.</li>
+                    <li>**Primary Turns ($N_1$):** $N_1 = V_{primary} / E_t = 250 V / 8 V$.</li>
+                    <li>**Secondary Turns ($N_2$):** $N_2 = V_{secondary} / E_t = 3000 V / 8 V$.</li>
+                </ol>
+                <p>*(The flux density information is extra data when EMF/turn is given, but useful for calculating core area if required later.)*</p>
+            </div>
+
+            <div class="subjective-question">
+                <h3>3. Define Voltage Regulation and Efficiency of a Transformer. Give Losses.</h3>
+                <div class="section-header">A. Voltage Regulation (VR):</div>
+                <p> **Definition:** The change in secondary terminal voltage from no-load to full-load (primary voltage being constant), expressed as a percentage of the full-load voltage. $VR = \frac{V_{2, No-Load} - V_{2, Full-Load}}{V_{2, Full-Load}} \times 100\%$.</p>
+                <div class="section-header">B. Efficiency ($\eta$):</div>
+                <p> **Definition:** The ratio of output power to input power, typically expressed as a percentage. $\eta = \frac{\text{Output Power}}{\text{Input Power}} = \frac{\text{Output Power}}{\text{Output Power} + \text{Losses}} \times 100\%$.</p>
+                <div class="section-header">C. Losses:</div>
+                <ol>
+                    <li>**Core (Iron) Losses ($P_i$):** Constant losses irrespective of load. Includes Hysteresis Loss and Eddy Current Loss.</li>
+                    <li>**Copper Losses ($P_{cu}$):** Variable losses, proportional to the square of the load current ($I^2R$ losses).</li>
+                </ol>
+            </div>
+
+            <div class="subjective-question">
+                <h3>4. Explain about i) Switch Fuse (SFU) ii) Earth Leakage Circuit Breaker (ELCB).</h3>
+                <div class="section-header">i) Switch Fuse Unit (SFU):</div>
+                <p> **Definition:** A device that combines an electrical switch (for manual isolation and switching) and a fuse (for automatic protection against overcurrent/short circuit). It is used for manually isolating a circuit and providing protection.</p>
+                <div class="section-header">ii) Earth Leakage Circuit Breaker (ELCB):</div>
+                <p> **Definition:** A safety device that monitors the voltage of the protected circuit's metal case relative to earth. It operates by sensing a potential rise on the protective earth conductor (PE) if a fault occurs, and tripping the circuit. *Note: Modern systems prefer RCCB/RCBO which detect current imbalance.*</p>
             </div>
             
-
-[Image of Single Phase Transformer Construction]
-
             <div class="subjective-question">
-                <h3>2. Define Voltage Regulation and Efficiency of a Transformer. Give Losses in a Transformer.</h3>
-                <ul>
-                    <li>**Voltage Regulation (VR):** The change in secondary terminal voltage from no-load to full-load (primary voltage being kept constant), expressed as a percentage of the full-load voltage. 
-                        $$VR = \frac{V_{2, No-Load} - V_{2, Full-Load}}{V_{2, Full-Load}} \times 100\%$$
-                    </li>
-                    <li>**Efficiency ($\eta$):** The ratio of output power to input power, typically expressed as a percentage.
-                        $$\eta = \frac{\text{Output Power}}{\text{Input Power}} = \frac{\text{Output Power}}{\text{Output Power} + \text{Losses}} \times 100\%$$
-                    </li>
-                    <li>**Losses in Transformer:**
-                        <ul>
-                            <li>**Core (Iron) Losses ($P_i$):** Constant losses irrespective of load.
-                                <ul>
-                                    <li>*Hysteresis Loss:* Due to reversal of magnetization in the core.</li>
-                                    <li>*Eddy Current Loss:* Due to induced currents in the core material.</li>
-                                </ul>
-                            </li>
-                            <li>**Copper Losses ($P_{cu}$):** Variable losses, proportional to the square of the load current ($I^2R$ losses).</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="subjective-question">
-                <h3>3. Discuss the Construction and Working of a Three-Phase Induction Motor.</h3>
-                <ul>
-                    <li>**Brief Definition:** A three-phase induction motor is an AC machine that converts electrical power into mechanical power based on the principle of electromagnetic induction.</li>
-                    <li>**Construction:**
-                        <ul>
-                            <li>**Stator:** Contains a laminated core with three-phase windings placed in slots. When energized, it produces a rotating magnetic field ($N_s = 120f/P$).</li>
-                            <li>**Rotor:** Two main types: Squirrel Cage (robust, inexpensive, copper/aluminum bars shorted by end rings) and Wound Rotor (has slip rings for external resistance control).</li>
-                        </ul>
-                    </li>
-                    <li>**Working Principle:**
-                        <ol>
-                            <li>The three-phase supply creates a Rotating Magnetic Field (RMF) in the stator at synchronous speed ($N_s$).</li>
-                            <li>The RMF cuts the stationary rotor conductors, inducing an EMF (Faraday's Law).</li>
-                            <li>The induced EMF causes current to flow in the short-circuited rotor conductors.</li>
-                            <li>The current-carrying conductors in the magnetic field experience a mechanical force/torque (Lorentz Force), causing the rotor to rotate.</li>
-                            <li>The rotor speed ($N_r$) is *always less than* $N_s$ (a phenomenon called 'Slip') for induction to continuously occur.</li>
-                        </ol>
-                    </li>
-                </ul>
+                <h3>5. Describe the Construction and Working Principle of a Synchronous Generator.</h3>
+                <div class="section-header">A. Construction:</div>
+                <p>
+                    * **Stator (Armature):** Fixed outer part with 3-phase windings where the EMF is induced.
+                    * **Rotor (Field):** Inner rotating part fed by DC (exciter) to create the main magnetic field. Can be Salient Pole (for low speed) or Cylindrical/Non-salient Pole (for high speed).
+                </p>
+                <div class="section-header">B. Working Principle:</div>
+                <ol>
+                    <li>The DC field winding on the rotor is energized, creating a magnetic flux.</li>
+                    <li>A prime mover rotates the rotor at **synchronous speed ($N_s$)**.</li>
+                    <li>As the field poles rotate, the magnetic flux links the stationary 3-phase stator conductors.</li>
+                    <li>According to **Faraday's Law**, an EMF is induced in the stator windings, generating 3-phase AC power.</li>
+                    <li>The rotor speed is synchronized with the frequency ($N_s = 120f/P$).</li>
+                </ol>
             </div>
             
+            <div class="subjective-question">
+                <h3>6. Explain the different types of earthing used in electrical installations.</h3>
+                <div class="section-header">Brief Definition:</div>
+                <p>Earthing (or grounding) is the process of connecting the non-current carrying metallic parts of an electrical apparatus or the neutral point of a system to the earth, to provide a low-resistance path for leakage/fault currents and ensure safety.</p>
+                <div class="section-header">Types (Common):</div>
+                <ol>
+                    <li>**Pipe Earthing:** A galvanized iron (GI) or cast iron perforated pipe is buried vertically in the ground. The area around the pipe is filled with alternate layers of salt and charcoal/coke for lowering the earth resistance.</li>
+                    <li>**Plate Earthing:** A copper or GI plate is buried vertically in a pit more than 3 meters deep. The plate is surrounded by alternate layers of salt and charcoal/coke.</li>
+                </ol>
+                <div class="section-header">Significance:</div>
+                <p>It maintains the potential of the system parts relative to the ground, prevents electrocution, and provides a safe path for fault current, enabling protective devices (like ELCB/fuse) to trip.</p>
+            </div>
+
+            <div class="subjective-question">
+                <h3>7. Derive the expression for the resonant frequency of a series R-L-C circuit and explain its significance.</h3>
+                <div class="section-header">A. Derivation:</div>
+                <ol>
+                    <li>**Condition for Resonance:** Resonance occurs in a series RLC circuit when the inductive reactance ($X_L$) equals the capacitive reactance ($X_C$).
+                        $$X_L = X_C$$
+                    </li>
+                    <li>**Substitute Reactance Formulas:**
+                        $$2\pi f_r L = \frac{1}{2\pi f_r C}$$
+                    </li>
+                    <li>**Rearrange for $f_r$ (Resonant Frequency):**
+                        $$(2\pi f_r)^2 = \frac{1}{LC}$$
+                        $$4\pi^2 f_r^2 = \frac{1}{LC}$$
+                        $$f_r^2 = \frac{1}{4\pi^2 LC}$$
+                    </li>
+                    <li>**Final Expression:**
+                        $$f_r = \frac{1}{2\pi \sqrt{LC}} \text{ (Hz)}$$
+                    </li>
+                </ol>
+                <div class="section-header">B. Significance at Resonance:</div>
+                <p>The circuit impedance is minimum ($Z = R$), the current is maximum, and the power factor is unity ($\cos\Phi = 1$).</p>
+            </div>
+
+            <div class="subjective-question">
+                <h3>8. Transformer Turns and Core Area Calculation [Numerical]</h3>
+                <p>A 4500 V/225 V, 50 Hz single-phase transformer is to have an approximate e.m.f. per turn of 15 V and operate with a maximum flux density ($B_m$) of 1.4 T. Calculate **(i) the number of primary and secondary turns** and **(ii) the cross-sectional area of the core**.</p>
+                <div class="section-header">Suggested Steps for Solution:</div>
+                <ol>
+                    <li>**(i) Primary and Secondary Turns:**
+                        $$N_1 = V_1 / (EMF/turn) = 4500 V / 15 V$$
+                        $$N_2 = V_2 / (EMF/turn) = 225 V / 15 V$$
+                    </li>
+                    <li>**(ii) Maximum Flux ($\Phi_m$):** Use the EMF equation in terms of $N$:
+                        $$E_{RMS} = 4.44 f \Phi_{m} N$$
+                        Since $E_{RMS}/N$ (EMF per turn) is $15 V$:
+                        $$\Phi_m = \frac{E_{RMS} / N}{4.44 f} = \frac{15 V}{4.44 \times 50 Hz} \text{ (Webers)}$$
+                    </li>
+                    <li>**(iii) Core Area ($A_c$):** Use the relationship between flux, flux density, and area:
+                        $$A_c = \Phi_m / B_m = \Phi_m / 1.4 \text{ (m}^2)$$
+                    </li>
+                </ol>
+            </div>
+
+            <div class="subjective-question">
+                <h3>9. Derive the EMF equation of a single-phase transformer.</h3>
+                <div class="section-header">Definition:</div>
+                <p>The EMF equation of a transformer defines the relationship between the induced voltage ($E$), the frequency ($f$), the number of turns ($N$), and the maximum magnetic flux ($\Phi_m$).</p>
+                <div class="section-header">Suggested Steps for Derivation:</div>
+                <ol>
+                    <li>State **Faraday's Law:** Instantaneous EMF $e = -N \frac{d\Phi}{dt}$.</li>
+                    <li>Assume sinusoidal flux: $\Phi = \Phi_{m} \sin(2\pi f t)$.</li>
+                    <li>Differentiate $\Phi$: $e = -N \frac{d}{dt} (\Phi_{m} \sin(2\pi f t)) = -N (2\pi f \Phi_{m} \cos(2\pi f t))$.</li>
+                    <li>The **Maximum EMF ($E_{max}$)** occurs when $\cos(2\pi f t) = 1$: $E_{max} = 2\pi f \Phi_{m} N$.</li>
+                    <li>Calculate the **RMS Value ($E$):** For a sinusoid, $E_{RMS} = E_{max} / \sqrt{2}$.</li>
+                    <li>**Final Result:** $E_{RMS} = \frac{2\pi}{\sqrt{2}} f \Phi_{m} N \approx 4.44 f \Phi_{m} N$ (Volts).</li>
+                </ol>
+            </div>
+            
+            <div class="subjective-question">
+                <h3>10. Explain the constructional features and working principle of a DC machine.</h3>
+                <div class="section-header">A. Constructional Features:</div>
+                <ol>
+                    <li>**Yoke:** Outer frame, provides mechanical support and path for magnetic flux.</li>
+                    <li>**Field System (Poles and Field Windings):** Creates the main magnetic flux (electromagnet).</li>
+                    <li>**Armature Core and Winding:** Rotating part where EMF is induced and current is carried.</li>
+                    <li>**Commutator:** Converts the AC induced in the armature winding into DC for the external circuit (Rectification).</li>
+                    <li>**Brushes:** Stationary parts that collect current from the rotating commutator.</li>
+                </ol>
+                <div class="section-header">B. Working Principle (Motor/Generator):</div>
+                <p>A DC machine can operate as a **Motor** (Electrical to Mechanical) based on the **Lorentz Force Principle** ($F = B I l$) or as a **Generator** (Mechanical to Electrical) based on **Faraday's Law** ($e = B l v$). The Commutator ensures the output is always DC.</p>
+            </div>
+
+            <div class="subjective-question">
+                <h3>11. Discuss the construction and working of a three-phase induction motor.</h3>
+                <div class="section-header">A. Construction:</div>
+                <ol>
+                    <li>**Stator:** Contains a laminated core with three-phase windings that create a Rotating Magnetic Field (RMF) when supplied with 3-phase AC.</li>
+                    <li>**Rotor:** The moving part. Two main types: Squirrel Cage (conductors shorted by end rings) and Wound Rotor (conductors connected to slip rings).</li>
+                </ol>
+                <div class="section-header">B. Working Principle:</div>
+                <ol>
+                    <li>The 3-phase supply to the stator generates an **RMF** rotating at synchronous speed ($N_s$).</li>
+                    <li>The RMF cuts the stationary rotor conductors, **inducing an EMF** in them (Electromagnetic Induction).</li>
+                    <li>The induced EMF drives a **current** through the short-circuited rotor.</li>
+                    <li>The current-carrying rotor conductors experience a **mechanical force/torque** (Lorentz Force) that causes the rotor to rotate in the direction of the RMF.</li>
+                    <li>The rotor speed ($N_r$) must always be less than $N_s$ (Slip) for continuous EMF induction.</li>
+                </ol>
+            </div>
+            
+            <div class="subjective-question">
+                <h3>12. Describe the construction and operation of a Miniature Circuit Breaker (MCB).</h3>
+                <div class="section-header">A. Construction:</div>
+                <ol>
+                    <li>**Bimetallic Strip:** Senses and trips on prolonged **overload** current (Thermal action).</li>
+                    <li>**Solenoid/Electromagnet:** Senses and trips instantaneously on large **short circuit** current (Magnetic action).</li>
+                    <li>**Operating Mechanism:** Ensures fast breaking action.</li>
+                    <li>**Arc Chute:** Divides and extinguishes the electric arc created when the contacts open.</li>
+                </ol>
+                <div class="section-header">B. Operation:</div>
+                <p>The MCB provides dual protection: **Thermal protection** (slow trip for moderate overcurrent) and **Magnetic protection** (instantaneous trip for high short circuit current).</p>
+            </div>
         </div>
 
     </div>
 </div>
 
 <script>
-    // Correct Answers for MCQs
+    // --- JavaScript for Interactive Checking ---
+
+    // Consolidated Answers for MCQs
     const mcqAnswers = {
-        'q1': 'A',
-        'q2': 'B',
-        'q3': 'C',
-        'q4': 'B',
-        'q5': 'B',
-        'q6': 'C'
-        // Add more MCQ answers as needed
+        'q1': 'A', 'q2': 'B', 'q3': 'C', 'q4': 'D', 'q5': 'A',
+        'q6': 'B', 'q7': 'B', 'q8': 'D', 'q9': 'A', 'q10': 'C',
+        'q11': 'B', 'q12': 'C', 'q13': 'C', 'q14': 'B', 'q15': 'B',
+        'q16': 'C', 'q17': 'A', 'q18': 'B', 'q19': 'B', 'q20': 'D'
     };
 
     /**
@@ -488,15 +775,19 @@
         const selectedOption = document.querySelector(`input[name='${qid}']:checked`);
         const feedbackElement = document.getElementById(`feedback-${qid}`);
         const correctAnswer = mcqAnswers[qid];
+        
+        // Map option value (A, B, C, D) to its label text for display
+        const getLabelText = (val) => {
+            const input = document.querySelector(`#${qid} input[value='${val}']`);
+            return input ? input.parentNode.textContent.trim() : `(Option ${val} not found)`;
+        };
 
         feedbackElement.style.display = 'block';
-        
-        // Find the text content of the correct option
-        const correctLabel = document.querySelector(`.option-group[data-answer='${correctAnswer}'] label input[value='${correctAnswer}']`).parentNode.textContent.trim();
+        const correctLabel = getLabelText(correctAnswer);
 
         if (!selectedOption) {
             feedbackElement.className = 'feedback incorrect';
-            feedbackElement.innerHTML = `**Incorrect or Unanswered.** The correct answer is: **${correctAnswer}) ${correctLabel}**`;
+            feedbackElement.innerHTML = `**Unanswered.** The correct answer is: <span class="correct-answer-text-display">${correctLabel}</span>`;
             return;
         }
 
@@ -508,27 +799,35 @@
             feedbackElement.innerHTML = `**Correct!** Well done.`;
         } else {
             feedbackElement.className = 'feedback incorrect';
-            feedbackElement.innerHTML = `**Incorrect.** You chose ${userAnswer}) ${userLabel}. The correct answer is: **${correctAnswer}) ${correctLabel}**`;
+            feedbackElement.innerHTML = `**Incorrect.** You chose ${userAnswer}. The correct answer is: <span class="correct-answer-text-display">${correctLabel}</span>`;
         }
     }
 
     /**
      * Checks the input for a Fill-in-the-Blank question.
      * @param {string} qid - The ID of the question element (e.g., 'q21').
-     * @param {string} correctAns - The correct answer string.
+     * @param {string} correctAns - The correct answer string (may contain multiple acceptable terms separated by /).
      */
     function checkFIB(qid, correctAns) {
         const inputElement = document.getElementById(`${qid}-fib`);
         const feedbackElement = document.getElementById(`feedback-${qid}`);
-        const userAnswer = inputElement.value.trim();
-
-        // Normalize answers (case-insensitive check)
-        const normalizedUserAnswer = userAnswer.toLowerCase().replace(/[^a-z0-9]/g, '');
-        const normalizedCorrectAns = correctAns.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const userAnswer = inputElement.value.trim().toLowerCase();
+        
+        // Define acceptable answers for fuzzy matching
+        const acceptableAnswers = correctAns.toLowerCase().split('/').map(a => a.trim());
         
         feedbackElement.style.display = 'block';
+        let isCorrect = false;
+
+        // Check if the user answer contains any of the acceptable key phrases
+        for (const acceptable of acceptableAnswers) {
+            if (userAnswer.includes(acceptable) && userAnswer.length >= acceptable.length * 0.5) {
+                isCorrect = true;
+                break;
+            }
+        }
         
-        if (normalizedUserAnswer.includes(normalizedCorrectAns) && normalizedUserAnswer.length >= normalizedCorrectAns.length * 0.75) {
+        if (isCorrect) {
             feedbackElement.className = 'feedback correct';
             feedbackElement.innerHTML = `**Correct!** Your answer is accepted.`;
         } else {
@@ -538,21 +837,21 @@
     }
 
     /**
-     * Checks all matches in a given set (e.g., 'a' or 'b').
-     * @param {string} setPrefix - The prefix of the table/questions (e.g., 'a').
+     * Checks all matches in a given set ('a').
+     * @param {string} setPrefix - The prefix of the table/questions (currently only 'a').
      */
     function checkMatching(setPrefix) {
         const table = document.getElementById(`match-table-${setPrefix}`);
         const rows = table.querySelectorAll('tbody tr');
         
         rows.forEach((row, index) => {
-            const rowNumber = index + 1;
-            const qNum = setPrefix === 'a' ? (31 + index) : (36 + index);
+            const qNum = 31 + index;
             const selectElement = document.getElementById(`match-q${qNum}`);
             const feedbackElement = document.getElementById(`match-feedback-${qNum}`);
             const selectedValue = selectElement.value;
             const correctAnswer = row.getAttribute('data-correct-match');
-            
+            const colBText = row.querySelector('td:nth-child(3)').textContent.trim(); // Get the text from Column B
+
             feedbackElement.style.display = 'block';
 
             if (selectedValue === correctAnswer) {
@@ -560,50 +859,11 @@
                 feedbackElement.innerHTML = 'Correct';
             } else {
                 feedbackElement.className = 'match-feedback incorrect';
-                feedbackElement.innerHTML = `Incorrect. Correct match is **${correctAnswer}**`;
+                feedbackElement.innerHTML = `Incorrect. The correct match is **${correctAnswer}. ${colBText}**`;
             }
         });
     }
 
-    // Initialize display for Set B matching
-    const matchDataB = [
-        { q: 36, match: 'c', colB: 'a. VAr (Volt-Ampere Reactive)' },
-        { q: 37, match: 'a', colB: 'b. $\\sqrt{3} \\times V_L \\times I_L$ (Apparent Power)' },
-        { q: 38, match: 'e', colB: 'c. $\\cos\\Phi$' },
-        { q: 39, match: 'b', colB: 'd. $(I^2) \\times R$' },
-        { q: 40, match: 'd', colB: 'e. Core loss due to flux reversal' }
-    ];
-
-    // Build Set B table (Since Set B was cut off, reconstructing it here)
-    const setBHTML = `
-        <h3 style="color:#0056b3; margin-top:20px;">Set B</h3>
-        <table class="matching-table" id="match-table-b">
-            <thead>
-                <tr><th>Column A (Concept)</th><th>Your Match</th><th>Column B (Value/Type)</th><th>Feedback</th></tr>
-            </thead>
-            <tbody>
-    `;
-
-    let setBRows = '';
-    matchDataB.forEach(item => {
-        setBRows += `
-            <tr data-correct-match="${item.match}">
-                <td>${item.q}. ${item.match === 'c' ? 'Power Factor' : item.match === 'a' ? 'Reactive Power' : item.match === 'e' ? 'Hysteresis Losses' : item.match === 'b' ? 'Three-Phase Apparent Power' : 'Copper Losses'}</td>
-                <td><select name="match-q${item.q}" id="match-q${item.q}"><option value="">Select...</option><option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option></select></td>
-                <td>${item.colB}</td>
-                <td><span class="match-feedback" id="match-feedback-${item.q}"></span></td>
-            </tr>
-        `;
-    });
-
-    const setBHTMLComplete = setBHTML + setBRows + `
-            </tbody>
-        </table>
-        <button type="button" class="check-btn" onclick="checkMatching('b')">Check Matches (Set B)</button>
-    `;
-
-    // Inserting Set B into the matching section
-    document.querySelector('.question-section:nth-child(3)').innerHTML += setBHTMLComplete;
 </script>
 
 </body>
