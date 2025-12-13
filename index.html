@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEE Objective Self-Test</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 95%;
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .title-bar {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Question and Input Section Styles */
+        .question-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #fafafa;
+        }
+        .question-section h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 0;
+            color: #007bff;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+        .question p {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .option-group label {
+            display: block;
+            margin-bottom: 5px;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .option-group label:hover {
+            background-color: #e9f5ff;
+        }
+        input[type="text"], input[type="tel"] {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .check-btn {
+            padding: 8px 15px;
+            background-color: #ffc107;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .check-btn:hover:not(:disabled) {
+            background-color: #e0a800;
+        }
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .disabled-input {
+            cursor: not-allowed;
+        }
+        /* New Styles for Hall Ticket Validation */
+        #questionsContainer {
+            display: none; /* Hide questions initially */
+        }
+        #accessButton {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #28a744;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+        #accessButton:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>BHARAT INSTITUTE OF ENGINEERING & TECHNOLOGY</h1>
+        [cite_start]<p>BEE Objective Self-Assessment [cite: 1] - [cite_start]Mid-Term [cite: 1]</p>
+    </header>
+
+    <div class="title-bar">
+        Self-Testing Mode: Check your answers instantly!
+    </div>
+
+    <form id="loginForm">
+        <div class="question-section">
+            <h2>Access Test</h2>
+            <div class="question">
+                <label for="regName">Full Name:</label>
+                <input type="text" id="regName" name="regName" required>
+            </div>
+            <div class="question">
+                <label for="hallTicket">Hall Ticket No (Roll No):</label>
+                <input type="text" id="hallTicket" name="hallTicket" required>
+            </div>
+            <button type="button" id="accessButton">Access Questions</button>
+        </div>
+    </form>
+    
+    <div id="questionsContainer">
+
+        <div class="question-section">
+            <h2>I. [cite_start]Multiple Choice Questions (10 Marks) [cite: 2]</h2>
+            
+            <div class="question" id="q1">
+                <p>1. [cite_start]A single-phase induction motor is generally not self-starting because: [cite: 2]</p>
+                <div class="option-group" data-answer="A">
+                    [cite_start]<label><input type="radio" name="q1" value="A"> A) It produces a non-rotating field</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q1" value="B"> B) It operates at high slip</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q1" value="C"> C) It has low resistance</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q1" value="D"> D) Its rotor is short-circuited</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q1')">Check Answer</button>
+                <div class="feedback" id="feedback-q1"></div>
+            </div>
+            
+            <div class="question" id="q2">
+                <p>2. [cite_start]Which component is used for power factor improvement? [cite: 2]</p>
+                <div class="option-group" data-answer="B">
+                    [cite_start]<label><input type="radio" name="q2" value="A"> A) Inductor</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q2" value="B"> B) Capacitor</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q2" value="C"> C) Resistor</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q2" value="D"> D) Transformer</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q2')">Check Answer</button>
+                <div class="feedback" id="feedback-q2"></div>
+            </div>
+
+            <div class="question" id="q3">
+                <p>3. [cite_start]The core of a transformer is laminated to reduce: [cite: 2]</p>
+                <div class="option-group" data-answer="C">
+                    [cite_start]<label><input type="radio" name="q3" value="A"> A) Copper losses</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q3" value="B"> B) Hysteresis losses</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q3" value="C"> C) Eddy current losses</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q3" value="D"> D) Mechanical losses</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q3')">Check Answer</button>
+                <div class="feedback" id="feedback-q3"></div>
+            </div>
+
+            <div class="question" id="q4">
+                <p>4. [cite_start]Which machine’s performance is defined by its torque-slip characteristic? [cite: 2]</p>
+                <div class="option-group" data-answer="D">
+                    [cite_start]<label><input type="radio" name="q4" value="A"> A) DC Shunt Motor</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q4" value="B"> B) Auto-transformer</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q4" value="C"> C) Synchronous Generator</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q4" value="D"> D) Three-Phase Induction Motor</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q4')">Check Answer</button>
+                <div class="feedback" id="feedback-q4"></div>
+            </div>
+
+            <div class="question" id="q5">
+                <p>5. [cite_start]The relation between line voltage ($V_L$) and phase voltage ($V_{ph}$) in a Star connection is: [cite: 2]</p>
+                <div class="option-group" data-answer="A">
+                    [cite_start]<label><input type="radio" name="q5" value="A"> A) $V_L = 1.732V_{ph}$</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q5" value="B"> B) $V_L = 3 V_{ph}$</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q5" value="C"> C) $V_L = V_{ph}$</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q5" value="D"> D) none</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q5')">Check Answer</button>
+                <div class="feedback" id="feedback-q5"></div>
+            </div>
+            
+            <div class="question" id="q6">
+                <p>6. [cite_start]Which component is primarily used to detect earth leakage current? [cite: 2]</p>
+                <div class="option-group" data-answer="B">
+                    [cite_start]<label><input type="radio" name="q6" value="A"> A) SFU</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q6" value="B"> B) ELCB</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q6" value="C"> C) MLCB</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q6" value="D"> D) MCCB</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q6')">Check Answer</button>
+                <div class="feedback" id="feedback-q6"></div>
+            </div>
+
+            <div class="question" id="q7">
+                <p>7. [cite_start]The unit of reactive power is: [cite: 2]</p>
+                <div class="option-group" data-answer="B">
+                    [cite_start]<label><input type="radio" name="q7" value="A"> A) Watt (W)</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q7" value="B"> B) Volt-Ampere Reactive (VAR)</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q7" value="C"> C) Volt-Ampere (VA)</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q7" value="D"> D) Ohm</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q7')">Check Answer</button>
+                <div class="feedback" id="feedback-q7"></div>
+            </div>
+
+            <div class="question" id="q8">
+                <p>8. [cite_start]An auto-transformer has: [cite: 2]</p>
+                <div class="option-group" data-answer="D">
+                    [cite_start]<label><input type="radio" name="q8" value="A"> A) Two separate windings</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q8" value="B"> B) No core</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q8" value="C"> C) Three windings</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q8" value="D"> D) A single winding</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q8')">Check Answer</button>
+                <div class="feedback" id="feedback-q8"></div>
+            </div>
+
+            <div class="question" id="q9">
+                <p>9. [cite_start]The purpose of using an MCB is to provide protection against: [cite: 2]</p>
+                <div class="option-group" data-answer="A">
+                    [cite_start]<label><input type="radio" name="q9" value="A"> A) Over current and short circuit</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q9" value="B"> B) Low voltage</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q9" value="C"> C) Power factor correction</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q9" value="D"> D) Radio interference</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q9')">Check Answer</button>
+                <div class="feedback" id="feedback-q9"></div>
+            </div>
+
+            <div class="question" id="q10">
+                <p>10. [cite_start]Batteries store energy in which form? [cite: 2]</p>
+                <div class="option-group" data-answer="C">
+                    [cite_start]<label><input type="radio" name="q10" value="A"> A) Thermal</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q10" value="B"> B) Mechanical</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q10" value="C"> C) Chemical</label> [cite: 2]
+                    [cite_start]<label><input type="radio" name="q10" value="D"> D) Nuclear</label> [cite: 2]
+                </div>
+                <button type="button" class="check-btn" onclick="checkAnswer('q10')">Check Answer</button>
+                <div class="feedback" id="feedback-q10"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // Hardcoded answers for the objective questions based on the provided attachment.
+    const CORRECT_ANSWERS = {
+        'q1': 'A', // It produces a non-rotating field
+        'q2': 'B', // Capacitor
+        'q3': 'C', // Eddy current losses
+        'q4': 'D', // Three-Phase Induction Motor
+        'q5': 'A', // VL = 1.732Vph
+        'q6': 'B', // ELCB
+        'q7': 'B', // Volt-Ampere Reactive (VAR)
+        'q8': 'D', // A single winding
+        'q9': 'A', // Over current and short circuit
+        'q10': 'C' // Chemical
+    };
+
+    /**
+     * Handles the logic for checking the user's answer for a specific question.
+     * @param {string} questionId The ID of the question element (e.g., 'q1').
+     */
+    function checkAnswer(questionId) {
+        const questionElement = document.getElementById(questionId);
+        const optionGroup = questionElement.querySelector('.option-group');
+        const feedbackElement = document.getElementById(`feedback-${questionId}`);
+        const checkBtn = questionElement.querySelector('.check-btn');
+        
+        // Find the selected radio button
+        const selectedOption = optionGroup.querySelector(`input[name=${questionId}]:checked`);
+        
+        if (!selectedOption) {
+            alert("Please select an option before checking the answer.");
+            return;
+        }
+
+        const userAnswer = selectedOption.value;
+        const correctAnswerKey = optionGroup.getAttribute('data-answer');
+        const correctAnswer = CORRECT_ANSWERS[questionId];
+        
+        // Find the full text of the correct option
+        const correctOptionLabel = optionGroup.querySelector(`input[value="${correctAnswerKey}"]`).closest('label').textContent.trim();
+        
+        // Check if correct
+        if (userAnswer === correctAnswerKey) {
+            feedbackElement.className = 'feedback correct';
+            feedbackElement.innerHTML = '✅ **Correct!** Great job.';
+        } else {
+            feedbackElement.className = 'feedback incorrect';
+            feedbackElement.innerHTML = `❌ **Incorrect.** The correct answer is **${correctOptionLabel}**.`;
+        }
+
+        feedbackElement.style.display = 'block';
+
+        // Disable options and button after checking
+        optionGroup.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.disabled = true;
+            // Highlight correct/incorrect choice
+            if (radio.value === userAnswer) {
+                radio.closest('label').style.backgroundColor = (userAnswer === correctAnswerKey) ? '#d4edda' : '#f8d7da';
+            }
+            if (radio.value === correctAnswerKey) {
+                radio.closest('label').style.backgroundColor = '#d4edda';
+            }
+            radio.closest('label').classList.add('disabled-input');
+        });
+        checkBtn.disabled = true;
+        checkBtn.textContent = 'Answer Locked';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const accessButton = document.getElementById('accessButton');
+        const hallTicketInput = document.getElementById('hallTicket');
+        const questionsContainer = document.getElementById('questionsContainer');
+
+        // Function to handle the Hall Ticket check
+        accessButton.addEventListener('click', () => {
+            const hallTicket = hallTicketInput.value.trim();
+            const fullName = document.getElementById('regName').value.trim();
+
+            if (hallTicket !== "" && fullName !== "") {
+                questionsContainer.style.display = 'block'; // Show questions
+                // Disable login inputs and button after successful access
+                document.getElementById('regName').disabled = true;
+                hallTicketInput.disabled = true;
+                accessButton.disabled = true;
+                accessButton.textContent = 'Access Granted';
+                accessButton.style.backgroundColor = '#1e7e34';
+            } else {
+                alert("Please enter your Full Name and Hall Ticket No to access the questions.");
+            }
+        });
+
+        // Hide the original submit button as this is a self-test now
+        // Note: The original submit button was not present in the provided HTML form structure
+        // But for completeness in the new structure, we don't include a final submit button.
+    });
+</script>
+
+</body>
+</html>
