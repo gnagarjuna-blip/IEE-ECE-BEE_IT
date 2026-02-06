@@ -3,146 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEE Solved Exam Guide - G Nagarjuna</title>
+    <title>BEE Final Exam - G Nagarjuna</title>
     <style>
-        :root {
-            --primary: #0056b3;
-            --success: #28a745;
-            --danger: #dc3545;
-            --bg: #f0f4f8;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background-color: var(--bg);
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Sticky Timer */
-        #timer-bar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 1.2em;
-            font-weight: bold;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 60px auto 30px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        header {
-            text-align: center;
-            border-bottom: 4px solid var(--primary);
-            margin-bottom: 30px;
-        }
-
-        .question-card {
-            border: 1px solid #e1e8ed;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-            background: #fff;
-        }
-
-        .question-text {
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        /* Full Width Options */
-        .option-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .option-label {
-            display: block;
-            padding: 12px 15px;
-            border: 2px solid #edf2f7;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .option-label:hover {
-            background-color: #f0f7ff;
-            border-color: var(--primary);
-        }
-
-        .opt-letter {
-            color: var(--primary);
-            font-weight: 900;
-            margin-right: 10px;
-        }
-
-        /* Result and Explanation */
-        .result-area {
-            display: none;
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .explanation {
-            margin-top: 10px;
-            font-size: 0.9em;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            padding-top: 10px;
-            color: #444;
-        }
-
+        :root { --primary: #0056b3; --success: #28a745; --danger: #dc3545; --bg: #f4f7f9; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        #timer-bar { position: fixed; top: 0; width: 100%; background: #333; color: white; text-align: center; padding: 12px; font-size: 1.2em; font-weight: bold; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .container { max-width: 900px; margin: 80px auto 40px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        header { text-align: center; border-bottom: 4px solid var(--primary); margin-bottom: 30px; }
+        .question-card { border: 1px solid #e1e8ed; border-radius: 12px; padding: 20px; margin-bottom: 25px; background: #fff; }
+        .question-text { font-size: 1.1em; font-weight: 600; margin-bottom: 15px; color: #2c3e50; }
+        .option-group { display: flex; flex-direction: column; gap: 10px; }
+        .option-label { display: block; padding: 14px; border: 2px solid #edf2f7; border-radius: 8px; cursor: pointer; transition: 0.2s; width: 100%; box-sizing: border-box; }
+        .option-label:hover { background: #f0f7ff; border-color: var(--primary); }
+        .opt-letter { color: var(--primary); font-weight: 900; margin-right: 10px; }
+        .result-area { display: none; margin-top: 15px; padding: 15px; border-radius: 8px; }
+        .explanation { margin-top: 10px; font-size: 0.9em; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px; color: #444; }
         .correct-bg { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .wrong-bg { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-
-        .check-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        .submit-btn {
-            display: block;
-            width: 100%;
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-top: 40px;
-        }
-
-        #score-board {
-            display: none;
-            background: var(--primary);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        .check-btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold; }
+        .submit-btn { display: block; width: 100%; background: #333; color: white; padding: 20px; font-size: 1.3em; border: none; border-radius: 10px; cursor: pointer; margin-top: 40px; }
+        #score-board { display: none; background: var(--primary); color: white; padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
+        input[type="text"] { width: 100%; padding: 12px; border: 2px solid #edf2f7; border-radius: 8px; box-sizing: border-box; }
+        h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 10px; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -151,137 +33,159 @@
 
 <div class="container">
     <div id="score-board">
-        <h2>Exam Completed!</h2>
-        <div id="score-details" style="font-size: 1.5em;"></div>
+        <h1>Exam Completed!</h1>
+        <div id="score-details" style="font-size: 2em;"></div>
     </div>
 
     <header>
-        <h1>BEE Fundamentals Examination</h1>
-        <p>Prepared By <strong>G NAGARJUNA</strong></p>
+        <h1>Basic Electrical Engineering Examination</h1>
+        <p>Expert Faculty: <strong>G NAGARJUNA</strong></p>
     </header>
 
-    <div id="exam-form">
-        <div class="question-card" id="q1">
-            <div class="question-text">1. A single-phase induction motor is generally not self-starting because:</div>
-            <div class="option-group">
-                <label class="option-label"><input type="radio" name="q1" value="A"> <span class="opt-letter">A)</span> It produces a non-rotating field</label>
-                <label class="option-label"><input type="radio" name="q1" value="B"> <span class="opt-letter">B)</span> High slip</label>
-                <label class="option-label"><input type="radio" name="q1" value="C"> <span class="opt-letter">C)</span> Low resistance</label>
-                <label class="option-label"><input type="radio" name="q1" value="D"> <span class="opt-letter">D)</span> High inertia</label>
-            </div>
-            <button type="button" class="check-btn" onclick="checkOne('q1', 'A', 'Single phase motors create a pulsating magnetic field. Without a starting winding or capacitor, there is no rotating magnetic field to initiate movement.')">Check Answer</button>
-            <div class="result-area" id="res-q1"></div>
-        </div>
-
-        <div class="question-card" id="q2">
-            <div class="question-text">2. The relation between line voltage (VL) and phase voltage (Vph) in a Star connection is:</div>
-            <div class="option-group">
-                <label class="option-label"><input type="radio" name="q2" value="A"> <span class="opt-letter">A)</span> VL = Vph</label>
-                <label class="option-label"><input type="radio" name="q2" value="B"> <span class="opt-letter">B)</span> VL = 1.732 x Vph</label>
-                <label class="option-label"><input type="radio" name="q2" value="C"> <span class="opt-letter">C)</span> VL = 3 x Vph</label>
-                <label class="option-label"><input type="radio" name="q2" value="D"> <span class="opt-letter">D)</span> VL = Vph / 1.732</label>
-            </div>
-            <button type="button" class="check-btn" onclick="checkOne('q2', 'B', 'In a Star connection, line voltage is Square Root of 3 (approx 1.732) times the phase voltage.')">Check Answer</button>
-            <div class="result-area" id="res-q2"></div>
-        </div>
-
+    <form id="exam-form">
+        <h3>Section I: Multiple Choice (1-30)</h3>
         
+        <div id="questions-container"></div>
 
-        <div class="question-card" id="q3">
-            <div class="question-text">3. Power Factor is defined as the ratio of:</div>
-            <div class="option-group">
-                <label class="option-label"><input type="radio" name="q3" value="A"> <span class="opt-letter">A)</span> Apparent Power to Real Power</label>
-                <label class="option-label"><input type="radio" name="q3" value="B"> <span class="opt-letter">B)</span> Reactive Power to Real Power</label>
-                <label class="option-label"><input type="radio" name="q3" value="C"> <span class="opt-letter">C)</span> Real Power to Apparent Power</label>
-                <label class="option-label"><input type="radio" name="q3" value="D"> <span class="opt-letter">D)</span> Real Power to Reactive Power</label>
-            </div>
-            <button type="button" class="check-btn" onclick="checkOne('q3', 'C', 'Power Factor (Cos Phi) = Real Power (Watts) / Apparent Power (VA). It measures how effectively power is used.')">Check Answer</button>
-            <div class="result-area" id="res-q3"></div>
-        </div>
+        <h3>Section II: Fill in the Blanks (31-40)</h3>
+        <div id="fib-container"></div>
 
-        <button type="button" class="submit-btn" onclick="calculateFinalScore()">SUBMIT FINAL EXAM</button>
-    </div>
+        <button type="button" class="submit-btn" onclick="calculateFinalScore()">SUBMIT COMPLETE EXAM</button>
+    </form>
 </div>
 
 <script>
-    // Timer Logic
-    let totalTime = 40 * 60; // 40 minutes
-    const clockDisplay = document.getElementById('clock');
-    
-    const timerInterval = setInterval(() => {
-        let minutes = Math.floor(totalTime / 60);
-        let seconds = totalTime % 60;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        clockDisplay.innerHTML = `${minutes}:${seconds}`;
-        
-        if (totalTime <= 0) {
-            clearInterval(timerInterval);
-            calculateFinalScore();
-            alert("Time is up! Your exam has been submitted.");
-        }
-        totalTime--;
-    }, 1000);
+    // Full Answer Key & Explanations for all 40 Questions
+    const examData = {
+        // MCQs
+        1: { q: "A 1-phase induction motor is not self-starting because:", a: "A", opts: ["It produces a pulsating field", "High slip", "Low resistance", "High inertia"], ex: "It produces a pulsating magnetic field which doesn't rotate; hence no starting torque." },
+        2: { q: "In Star connection, Line Voltage (VL) is:", a: "B", opts: ["VL = Vph", "VL = 1.732 x Vph", "VL = 3 x Vph", "VL = Vph / 1.732"], ex: "Star connection formula: Line Voltage = Root 3 times Phase Voltage." },
+        3: { q: "In Delta connection, Line Current (IL) is:", a: "C", opts: ["IL = Iph", "IL = 3 x Iph", "IL = 1.732 x Iph", "IL = Iph / 1.732"], ex: "Delta connection formula: Line Current = Root 3 times Phase Current." },
+        4: { q: "The Power Factor of a pure resistive circuit is:", a: "A", opts: ["Unity (1)", "Zero", "Lagging", "Leading"], ex: "In resistive circuits, voltage and current are in phase, so Cos 0 = 1." },
+        5: { q: "Transformer core is laminated to reduce:", a: "B", opts: ["Hysteresis loss", "Eddy current loss", "Copper loss", "Friction loss"], ex: "Laminations break the path of eddy currents, reducing heat loss." },
+        6: { q: "The unit of Apparent Power is:", a: "C", opts: ["Watts", "VAR", "VA", "kWh"], ex: "Apparent Power (S) is measured in Volt-Amperes (VA)." },
+        7: { q: "Which motor is used in domestic ceiling fans?", a: "B", opts: ["DC Series Motor", "1-Phase Induction Motor", "Synchronous Motor", "Universal Motor"], ex: "Capacitor-start induction motors are standard for fans." },
+        8: { q: "An alternator works on the principle of:", a: "A", opts: ["Faraday's Law", "Ohm's Law", "Kirchhoff's Law", "Lenz's Law"], ex: "Electromagnetic induction converts mechanical energy to electrical." },
+        9: { q: "The frequency of AC supply in India is:", a: "C", opts: ["60 Hz", "100 Hz", "50 Hz", "25 Hz"], ex: "India follows the standard 50 Hertz frequency." },
+        10: { q: "Real Power (P) formula in 1-phase AC is:", a: "D", opts: ["V x I", "V x I x Sin Phi", "V / I", "V x I x Cos Phi"], ex: "Real Power = Voltage x Current x Power Factor." },
+        11: { q: "The ratio of Real Power to Apparent Power is:", a: "A", opts: ["Power Factor", "Form Factor", "Peak Factor", "Q-Factor"], ex: "PF = Watts / VA." },
+        12: { q: "Kirchhoff's Current Law (KCL) is based on conservation of:", a: "B", opts: ["Energy", "Charge", "Mass", "Momentum"], ex: "KCL states total charge entering a node equals charge leaving." },
+        13: { q: "An ideal voltage source has internal resistance of:", a: "C", opts: ["Infinite", "High", "Zero", "100 Ohms"], ex: "Zero resistance ensures no internal voltage drop." },
+        14: { q: "Reactive Power is measured in:", a: "D", opts: ["Watts", "VA", "Ohms", "VAR"], ex: "VAR stands for Volt-Ampere Reactive." },
+        15: { q: "Transformer works on which supply?", a: "B", opts: ["DC only", "AC only", "Both AC and DC", "Pulsating DC"], ex: "Transformers require changing magnetic flux (AC) to work." },
+        16: { q: "Slip of an induction motor at starting is:", a: "A", opts: ["1", "0", "0.5", "Infinity"], ex: "At start, rotor speed is 0, so Slip = (Ns-0)/Ns = 1." },
+        17: { q: "The part that rotates in a DC motor is:", a: "C", opts: ["Stator", "Field", "Armature", "Yoke"], ex: "The armature is the rotating component in a DC machine." },
+        18: { q: "A 4-pole alternator at 1500 RPM produces frequency:", a: "B", opts: ["60 Hz", "50 Hz", "100 Hz", "25 Hz"], ex: "f = (P x N) / 120 = (4 x 1500) / 120 = 50 Hz." },
+        19: { q: "Form Factor of a sine wave is:", a: "A", opts: ["1.11", "1.414", "0.707", "0.637"], ex: "Form Factor = RMS value / Average value = 1.11." },
+        20: { q: "Ohm's law is not applicable to:", a: "D", opts: ["Resistors", "Insulators", "Copper wires", "Semiconductors"], ex: "Semiconductors are non-linear devices." },
+        21: { q: "Inductance is measured in:", a: "B", opts: ["Farads", "Henrys", "Ohms", "Coulombs"], ex: "The Henry (H) is the SI unit of inductance." },
+        22: { q: "In a series RLC circuit at resonance, impedance is:", a: "C", opts: ["Maximum", "Infinite", "Minimum", "Zero"], ex: "At resonance, Z = R, which is the minimum value." },
+        23: { q: "The function of a commutator in DC motor is:", a: "A", opts: ["Convert AC to DC", "Reduce friction", "Increase speed", "Cooling"], ex: "It reverses current direction in the armature conductors." },
+        24: { q: "Primary and secondary of a transformer are linked:", a: "B", opts: ["Electrically", "Magnetically", "Mechanically", "Chemically"], ex: "They share a common magnetic flux through the core." },
+        25: { q: "Copper loss in a transformer varies with:", a: "D", opts: ["Voltage", "Frequency", "Power Factor", "Square of Load Current"], ex: "Loss = I x I x R." },
+        26: { q: "Synchronous speed (Ns) formula is:", a: "C", opts: ["PN / 120", "120 / Pf", "120f / P", "120P / f"], ex: "Ns = 120 x Frequency / Poles." },
+        27: { q: "Buchholz relay is used for protection of:", a: "A", opts: ["Transformers", "Motors", "Generators", "Transmission lines"], ex: "It detects gas accumulation inside oil-filled transformers." },
+        28: { q: "Capacitance is measured in:", a: "B", opts: ["Henrys", "Farads", "Siemens", "Watts"], ex: "The Farad (F) is the unit of capacitance." },
+        29: { q: "Power factor is leading in:", a: "C", opts: ["Inductive circuit", "Resistive circuit", "Capacitive circuit", "None"], ex: "Capacitors cause current to lead voltage." },
+        30: { q: "The torque in an induction motor is proportional to:", a: "D", opts: ["Supply voltage", "Slip", "Frequency", "Square of Supply Voltage"], ex: "Torque is proportional to V squared." },
 
-    // Individual Question Answer Key
-    const answers = {
-        q1: { ans: 'A', expl: 'Single phase motors create a pulsating magnetic field. Without a starting winding or capacitor, there is no rotating magnetic field to initiate movement.' },
-        q2: { ans: 'B', expl: 'In a Star connection, line voltage is Square Root of 3 (approx 1.732) times the phase voltage.' },
-        q3: { ans: 'C', expl: 'Power Factor (Cos Phi) = Real Power (Watts) / Apparent Power (VA). It measures how effectively power is used.' }
+        // Fill in the Blanks
+        31: { q: "The ratio of RMS value to Average value is called ________.", a: "Form Factor", ex: "Form Factor = 1.11 for a sine wave." },
+        32: { q: "An instrument used to measure insulation resistance is ________.", a: "Megger", ex: "Meggers provide high voltage to test insulation." },
+        33: { q: "The S.I unit of magnetic flux is ________.", a: "Weber", ex: "Magnetic flux is measured in Webers (Wb)." },
+        34: { q: "The EMF induced in a transformer is ________ EMF.", a: "Statistically induced", ex: "There are no moving parts in a transformer." },
+        35: { q: "A fuse is always connected in ________ with the circuit.", a: "Series", ex: "This ensures all current passes through the fuse." },
+        36: { q: "Reciprocal of resistance is ________.", a: "Conductance", ex: "Conductance (G) = 1/R, measured in Siemens." },
+        37: { q: "Energy stored in a capacitor is 0.5 x C x ________.", a: "V squared", ex: "Energy = 1/2 C V^2." },
+        38: { q: "In 3-phase system, the phase difference is ________ degrees.", a: "120", ex: "Phases are separated by 120 degrees for balanced power." },
+        39: { q: "The thickness of transformer laminations is usually ________ mm.", a: "0.5", ex: "Typically ranges from 0.35mm to 0.5mm." },
+        40: { q: "DC series motor should never be started at ________.", a: "No Load", ex: "Speed can become dangerously high without a load." }
     };
 
-    // Check individual question
-    function checkOne(qid, correctAns, explanation) {
-        const selected = document.querySelector(`input[name="${qid}"]:checked`);
-        const resArea = document.getElementById('res-' + qid);
-        
-        if (!selected) {
-            alert("Please select an option!");
-            return;
-        }
+    // Render Questions
+    const mcqBox = document.getElementById('questions-container');
+    const fibBox = document.getElementById('fib-container');
 
-        resArea.style.display = "block";
-        if (selected.value === correctAns) {
-            resArea.className = "result-area correct-bg";
-            resArea.innerHTML = "<strong>Correct!</strong>";
-        } else {
-            resArea.className = "result-area wrong-bg";
-            resArea.innerHTML = `<strong>Incorrect!</strong> Correct answer is ${correctAns}.`;
-        }
-        resArea.innerHTML += `<div class="explanation"><strong>Explanation:</strong> ${explanation}</div>`;
+    for(let i=1; i<=30; i++) {
+        const item = examData[i];
+        mcqBox.innerHTML += `
+            <div class="question-card" id="q${i}">
+                <div class="question-text">${i}. ${item.q}</div>
+                <div class="option-group">
+                    ${item.opts.map((opt, idx) => `
+                        <label class="option-label">
+                            <input type="radio" name="q${i}" value="${String.fromCharCode(65+idx)}">
+                            <span class="opt-letter">${String.fromCharCode(65+idx)})</span> ${opt}
+                        </label>
+                    `).join('')}
+                </div>
+                <button type="button" class="check-btn" onclick="checkOne(${i})">Check Answer</button>
+                <div class="result-area" id="res-${i}"></div>
+            </div>`;
     }
 
-    // Final Submission Logic
+    for(let i=31; i<=40; i++) {
+        const item = examData[i];
+        fibBox.innerHTML += `
+            <div class="question-card" id="q${i}">
+                <div class="question-text">${i}. ${item.q}</div>
+                <input type="text" id="in-${i}" placeholder="Type answer here...">
+                <button type="button" class="check-btn" onclick="checkFIB(${i})">Check Answer</button>
+                <div class="result-area" id="res-${i}"></div>
+            </div>`;
+    }
+
+    // Timer Logic
+    let timeLimit = 40 * 60;
+    const timerDisplay = document.getElementById('clock');
+    const timerLoop = setInterval(() => {
+        let m = Math.floor(timeLimit / 60);
+        let s = timeLimit % 60;
+        timerDisplay.innerText = `${m}:${s < 10 ? '0'+s : s}`;
+        if(timeLimit <= 0) { clearInterval(timerLoop); calculateFinalScore(); }
+        timeLimit--;
+    }, 1000);
+
+    // Validation Functions
+    function checkOne(id) {
+        const sel = document.querySelector(`input[name="q${id}"]:checked`);
+        const res = document.getElementById('res-'+id);
+        if(!sel) return alert("Select an option!");
+        res.style.display = "block";
+        const isCorrect = sel.value === examData[id].a;
+        res.className = "result-area " + (isCorrect ? "correct-bg" : "wrong-bg");
+        res.innerHTML = `<strong>${isCorrect ? 'Correct!' : 'Incorrect. Answer: ' + examData[id].a}</strong><div class="explanation"><b>Explanation:</b> ${examData[id].ex}</div>`;
+    }
+
+    function checkFIB(id) {
+        const val = document.getElementById('in-'+id).value.trim();
+        const res = document.getElementById('res-'+id);
+        if(!val) return alert("Type an answer!");
+        res.style.display = "block";
+        const isCorrect = val.toLowerCase() === examData[id].a.toLowerCase();
+        res.className = "result-area " + (isCorrect ? "correct-bg" : "wrong-bg");
+        res.innerHTML = `<strong>${isCorrect ? 'Correct!' : 'Incorrect. Answer: ' + examData[id].a}</strong><div class="explanation"><b>Explanation:</b> ${examData[id].ex}</div>`;
+    }
+
     function calculateFinalScore() {
-        clearInterval(timerInterval);
+        clearInterval(timerLoop);
         let score = 0;
-        let total = Object.keys(answers).length;
-
-        for (let qid in answers) {
-            const selected = document.querySelector(`input[name="${qid}"]:checked`);
-            if (selected && selected.value === answers[qid].ans) {
-                score++;
-            }
-            // Force show all explanations on submit
-            checkOne(qid, answers[qid].ans, answers[qid].expl);
+        for(let i=1; i<=30; i++) {
+            const sel = document.querySelector(`input[name="q${i}"]:checked`);
+            if(sel && sel.value === examData[i].a) score++;
+            checkOne(i);
         }
-
-        // Show Scoreboard
-        const board = document.getElementById('score-board');
-        const details = document.getElementById('score-details');
-        board.style.display = "block";
-        details.innerHTML = `Score: ${score} / ${total} (${Math.round((score/total)*100)}%)`;
-        
-        // Scroll to top to see score
+        for(let i=31; i<=40; i++) {
+            const val = document.getElementById('in-'+i).value.trim();
+            if(val.toLowerCase() === examData[i].a.toLowerCase()) score++;
+            checkFIB(i);
+        }
+        document.getElementById('score-board').style.display = "block";
+        document.getElementById('score-details').innerText = `Your Score: ${score} / 40`;
         window.scrollTo({top: 0, behavior: 'smooth'});
-        
-        // Disable all inputs
-        const inputs = document.querySelectorAll('input');
-        inputs.forEach(i => i.disabled = true);
-        document.querySelector('.submit-btn').style.display = 'none';
-        document.getElementById('timer-bar').style.background = '#d9534f';
+        document.querySelectorAll('input').forEach(i => i.disabled = true);
         document.getElementById('timer-bar').innerHTML = "EXAM SUBMITTED";
     }
 </script>
-
 </body>
 </html>
