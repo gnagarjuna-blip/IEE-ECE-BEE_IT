@@ -3,29 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEE Solved Exam Guide - Nagarjuna</title>
+    <title>BEE Solved Exam Guide - G Nagarjuna</title>
     <style>
         :root {
             --primary: #0056b3;
             --success: #28a745;
             --danger: #dc3545;
-            --bg: #f4f7f9;
+            --bg: #f0f4f8;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
             background-color: var(--bg);
-            color: #333;
-            line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+        }
+
+        /* Sticky Timer */
+        #timer-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .container {
             max-width: 900px;
-            margin: auto;
+            margin: 60px auto 30px;
             background: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
@@ -34,33 +47,28 @@
             text-align: center;
             border-bottom: 4px solid var(--primary);
             margin-bottom: 30px;
-            padding-bottom: 10px;
         }
 
-        h2 { color: var(--primary); margin-bottom: 5px; }
-        .author { font-weight: bold; color: #666; font-style: italic; }
-
         .question-card {
-            background: #fff;
             border: 1px solid #e1e8ed;
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 25px;
-            transition: transform 0.2s;
+            background: #fff;
         }
 
         .question-text {
             font-size: 1.1em;
             font-weight: 600;
-            color: #2c3e50;
             margin-bottom: 15px;
+            color: #2c3e50;
         }
 
-        /* Option Styling - Full Width Clickable */
+        /* Full Width Options */
         .option-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .option-label {
@@ -69,171 +77,209 @@
             border: 2px solid #edf2f7;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.2s;
-            position: relative;
+            transition: 0.2s;
         }
 
         .option-label:hover {
             background-color: #f0f7ff;
-            border-color: #cbd5e0;
+            border-color: var(--primary);
         }
 
-        /* Highlight selected option */
-        input[type="radio"]:checked + .option-content {
-            font-weight: bold;
-        }
-
-        input[type="radio"] {
+        .opt-letter {
+            color: var(--primary);
+            font-weight: 900;
             margin-right: 10px;
         }
 
-        .opt-prefix {
-            color: var(--primary);
-            font-weight: 900;
-            margin-right: 5px;
-        }
-
-        /* Buttons */
-        .check-btn {
-            background-color: var(--success);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 15px;
-            width: 100%;
-        }
-
-        .check-btn:hover { background-color: #218838; }
-
-        /* Feedback and Explanation Area */
+        /* Result and Explanation */
         .result-area {
             display: none;
             margin-top: 15px;
             padding: 15px;
             border-radius: 8px;
-            animation: fadeIn 0.4s;
         }
 
         .explanation {
             margin-top: 10px;
-            font-size: 0.95em;
+            font-size: 0.9em;
             border-top: 1px solid rgba(0,0,0,0.1);
             padding-top: 10px;
-            color: #4a5568;
+            color: #444;
         }
 
-        .correct-bg { background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
-        .wrong-bg { background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .correct-bg { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong-bg { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .check-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
 
-        input[type="text"] {
+        .submit-btn {
+            display: block;
             width: 100%;
-            padding: 12px;
-            border: 2px solid #edf2f7;
-            border-radius: 8px;
-            box-sizing: border-box;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+
+        #score-board {
+            display: none;
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
 
+<div id="timer-bar">Time Remaining: <span id="clock">40:00</span></div>
+
 <div class="container">
+    <div id="score-board">
+        <h2>Exam Completed!</h2>
+        <div id="score-details" style="font-size: 1.5em;"></div>
+    </div>
+
     <header>
-        <h2>EE Fundamentals - Exam Guide</h2>
-        <div class="author">Prepared By G NAGARJUNA</div>
+        <h1>BEE Fundamentals Examination</h1>
+        <p>Prepared By <strong>G NAGARJUNA</strong></p>
     </header>
 
-    <div id="mcq-container">
+    <div id="exam-form">
         <div class="question-card" id="q1">
             <div class="question-text">1. A single-phase induction motor is generally not self-starting because:</div>
             <div class="option-group">
-                <label class="option-label"><input type="radio" name="q1" value="A"> <span class="opt-prefix">A)</span> It produces a non-rotating field</label>
-                <label class="option-label"><input type="radio" name="q1" value="B"> <span class="opt-prefix">B)</span> High slip</label>
-                <label class="option-label"><input type="radio" name="q1" value="C"> <span class="opt-prefix">C)</span> Low resistance</label>
+                <label class="option-label"><input type="radio" name="q1" value="A"> <span class="opt-letter">A)</span> It produces a non-rotating field</label>
+                <label class="option-label"><input type="radio" name="q1" value="B"> <span class="opt-letter">B)</span> High slip</label>
+                <label class="option-label"><input type="radio" name="q1" value="C"> <span class="opt-letter">C)</span> Low resistance</label>
+                <label class="option-label"><input type="radio" name="q1" value="D"> <span class="opt-letter">D)</span> High inertia</label>
             </div>
-            <button class="check-btn" onclick="validateMCQ('q1', 'A', 'Single-phase motors create a pulsating magnetic field rather than a rotating one. Since the field is stationary, it cannot produce starting torque.')">Check Answer</button>
+            <button type="button" class="check-btn" onclick="checkOne('q1', 'A', 'Single phase motors create a pulsating magnetic field. Without a starting winding or capacitor, there is no rotating magnetic field to initiate movement.')">Check Answer</button>
             <div class="result-area" id="res-q1"></div>
         </div>
 
-        <div class="question-card" id="q5">
-            <div class="question-text">5. The relation between line voltage (VL) and phase voltage (Vph) in a Star connection is:</div>
+        <div class="question-card" id="q2">
+            <div class="question-text">2. The relation between line voltage (VL) and phase voltage (Vph) in a Star connection is:</div>
             <div class="option-group">
-                <label class="option-label"><input type="radio" name="q5" value="A"> <span class="opt-prefix">A)</span> VL = 1.732 x Vph</label>
-                <label class="option-label"><input type="radio" name="q5" value="B"> <span class="opt-prefix">B)</span> VL = 3 x Vph</label>
-                <label class="option-label"><input type="radio" name="q5" value="C"> <span class="opt-prefix">C)</span> VL = Vph</label>
+                <label class="option-label"><input type="radio" name="q2" value="A"> <span class="opt-letter">A)</span> VL = Vph</label>
+                <label class="option-label"><input type="radio" name="q2" value="B"> <span class="opt-letter">B)</span> VL = 1.732 x Vph</label>
+                <label class="option-label"><input type="radio" name="q2" value="C"> <span class="opt-letter">C)</span> VL = 3 x Vph</label>
+                <label class="option-label"><input type="radio" name="q2" value="D"> <span class="opt-letter">D)</span> VL = Vph / 1.732</label>
             </div>
-            <button class="check-btn" onclick="validateMCQ('q5', 'A', 'In Star (Y) connections, the line voltage is root 3 (1.732) times the phase voltage, whereas line current equals phase current.')">Check Answer</button>
-            <div class="result-area" id="res-q5"></div>
+            <button type="button" class="check-btn" onclick="checkOne('q2', 'B', 'In a Star connection, line voltage is Square Root of 3 (approx 1.732) times the phase voltage.')">Check Answer</button>
+            <div class="result-area" id="res-q2"></div>
         </div>
 
-        <div class="question-card" id="q15">
-            <div class="question-text">15. The relation between line current (IL) and phase current (Iph) in a Delta connection is:</div>
+        
+
+        <div class="question-card" id="q3">
+            <div class="question-text">3. Power Factor is defined as the ratio of:</div>
             <div class="option-group">
-                <label class="option-label"><input type="radio" name="q15" value="A"> <span class="opt-prefix">A)</span> IL = Iph</label>
-                <label class="option-label"><input type="radio" name="q15" value="B"> <span class="opt-prefix">B)</span> IL = 1.732 x Iph</label>
-                <label class="option-label"><input type="radio" name="q15" value="C"> <span class="opt-prefix">C)</span> IL = 3 x Iph</label>
+                <label class="option-label"><input type="radio" name="q3" value="A"> <span class="opt-letter">A)</span> Apparent Power to Real Power</label>
+                <label class="option-label"><input type="radio" name="q3" value="B"> <span class="opt-letter">B)</span> Reactive Power to Real Power</label>
+                <label class="option-label"><input type="radio" name="q3" value="C"> <span class="opt-letter">C)</span> Real Power to Apparent Power</label>
+                <label class="option-label"><input type="radio" name="q3" value="D"> <span class="opt-letter">D)</span> Real Power to Reactive Power</label>
             </div>
-            <button class="check-btn" onclick="validateMCQ('q15', 'B', 'In a Delta connection, line current is root 3 (1.732) times the phase current, while line voltage is equal to phase voltage.')">Check Answer</button>
-            <div class="result-area" id="res-q15"></div>
+            <button type="button" class="check-btn" onclick="checkOne('q3', 'C', 'Power Factor (Cos Phi) = Real Power (Watts) / Apparent Power (VA). It measures how effectively power is used.')">Check Answer</button>
+            <div class="result-area" id="res-q3"></div>
         </div>
-    </div>
 
-    <h3>II. Fill in the Blanks</h3>
-    <div class="question-card" id="q21">
-        <div class="question-text">1. The Cosine of the angle between voltage and current is known as:</div>
-        <input type="text" id="in-q21" placeholder="Type your answer here...">
-        <button class="check-btn" onclick="validateFIB('q21', 'Power Factor', 'Power Factor (Cos Phi) indicates how effectively electrical power is being converted into useful work output.')">Check Answer</button>
-        <div class="result-area" id="res-q21"></div>
+        <button type="button" class="submit-btn" onclick="calculateFinalScore()">SUBMIT FINAL EXAM</button>
     </div>
-
 </div>
 
 <script>
-    function validateMCQ(qid, correctLetter, expl) {
-        const card = document.getElementById(qid);
-        const selected = card.querySelector('input[name="'+qid+'"]:checked');
-        const resArea = document.getElementById('res-' + qid);
+    // Timer Logic
+    let totalTime = 40 * 60; // 40 minutes
+    const clockDisplay = document.getElementById('clock');
+    
+    const timerInterval = setInterval(() => {
+        let minutes = Math.floor(totalTime / 60);
+        let seconds = totalTime % 60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        clockDisplay.innerHTML = `${minutes}:${seconds}`;
+        
+        if (totalTime <= 0) {
+            clearInterval(timerInterval);
+            calculateFinalScore();
+            alert("Time is up! Your exam has been submitted.");
+        }
+        totalTime--;
+    }, 1000);
 
+    // Individual Question Answer Key
+    const answers = {
+        q1: { ans: 'A', expl: 'Single phase motors create a pulsating magnetic field. Without a starting winding or capacitor, there is no rotating magnetic field to initiate movement.' },
+        q2: { ans: 'B', expl: 'In a Star connection, line voltage is Square Root of 3 (approx 1.732) times the phase voltage.' },
+        q3: { ans: 'C', expl: 'Power Factor (Cos Phi) = Real Power (Watts) / Apparent Power (VA). It measures how effectively power is used.' }
+    };
+
+    // Check individual question
+    function checkOne(qid, correctAns, explanation) {
+        const selected = document.querySelector(`input[name="${qid}"]:checked`);
+        const resArea = document.getElementById('res-' + qid);
+        
         if (!selected) {
-            alert("Please select an option first!");
+            alert("Please select an option!");
             return;
         }
 
         resArea.style.display = "block";
-        if (selected.value === correctLetter) {
+        if (selected.value === correctAns) {
             resArea.className = "result-area correct-bg";
             resArea.innerHTML = "<strong>Correct!</strong>";
         } else {
             resArea.className = "result-area wrong-bg";
-            resArea.innerHTML = "<strong>Incorrect.</strong> The correct answer is " + correctLetter;
+            resArea.innerHTML = `<strong>Incorrect!</strong> Correct answer is ${correctAns}.`;
         }
-        
-        resArea.innerHTML += "<div class='explanation'><strong>Explanation:</strong> " + expl + "</div>";
+        resArea.innerHTML += `<div class="explanation"><strong>Explanation:</strong> ${explanation}</div>`;
     }
 
-    function validateFIB(qid, correctAns, expl) {
-        const input = document.getElementById('in-' + qid).value.trim();
-        const resArea = document.getElementById('res-' + qid);
+    // Final Submission Logic
+    function calculateFinalScore() {
+        clearInterval(timerInterval);
+        let score = 0;
+        let total = Object.keys(answers).length;
 
-        if (input === "") {
-            alert("Please type an answer!");
-            return;
+        for (let qid in answers) {
+            const selected = document.querySelector(`input[name="${qid}"]:checked`);
+            if (selected && selected.value === answers[qid].ans) {
+                score++;
+            }
+            // Force show all explanations on submit
+            checkOne(qid, answers[qid].ans, answers[qid].expl);
         }
 
-        resArea.style.display = "block";
-        if (input.toLowerCase() === correctAns.toLowerCase()) {
-            resArea.className = "result-area correct-bg";
-            resArea.innerHTML = "<strong>Correct!</strong>";
-        } else {
-            resArea.className = "result-area wrong-bg";
-            resArea.innerHTML = "<strong>Incorrect.</strong> The answer is: " + correctAns;
-        }
-
-        resArea.innerHTML += "<div class='explanation'><strong>Explanation:</strong> " + expl + "</div>";
+        // Show Scoreboard
+        const board = document.getElementById('score-board');
+        const details = document.getElementById('score-details');
+        board.style.display = "block";
+        details.innerHTML = `Score: ${score} / ${total} (${Math.round((score/total)*100)}%)`;
+        
+        // Scroll to top to see score
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        
+        // Disable all inputs
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(i => i.disabled = true);
+        document.querySelector('.submit-btn').style.display = 'none';
+        document.getElementById('timer-bar').style.background = '#d9534f';
+        document.getElementById('timer-bar').innerHTML = "EXAM SUBMITTED";
     }
 </script>
 
