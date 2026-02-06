@@ -3,169 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEE Solved Exam Guide - Complete</title>
+    <title>BEE Solved Exam Guide - Nagarjuna</title>
     <style>
-        /* Base Styles */
+        :root {
+            --primary: #0056b3;
+            --success: #28a745;
+            --danger: #dc3545;
+            --bg: #f4f7f9;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f4f8;
+            background-color: var(--bg);
             color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
         }
+
         .container {
-            width: 95%;
-            max-width: 950px;
-            margin: 30px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
             border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
+
         header {
             text-align: center;
-            padding-bottom: 15px;
-            border-bottom: 4px solid #0056b3;
+            border-bottom: 4px solid var(--primary);
             margin-bottom: 30px;
+            padding-bottom: 10px;
         }
-        header h1 { color: #0056b3; font-size: 2.0em; margin-bottom: 5px; }
 
-        /* Option Font Styling */
-        .option-group label {
+        h2 { color: var(--primary); margin-bottom: 5px; }
+        .author { font-weight: bold; color: #666; font-style: italic; }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+        }
+
+        .question-text {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        /* Option Styling - Full Width Clickable */
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
             display: block;
-            margin-bottom: 8px;
-            padding: 10px;
-            border-radius: 6px;
+            padding: 12px 15px;
+            border: 2px solid #edf2f7;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s;
-            border: 1px solid transparent;
-            font-size: 1.05em;
+            position: relative;
         }
-        /* Specific Color for Option Letters (A, B, C, D) */
-        .option-text {
-            color: #0056b3; 
-            font-weight: 800;
-            margin-right: 10px;
+
+        .option-label:hover {
+            background-color: #f0f7ff;
+            border-color: #cbd5e0;
         }
-        .option-group label:hover {
-            background-color: #e9f2ff;
-            border-color: #b3d9ff;
-        }
-        
-        /* Interactive Elements */
-        .check-btn {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
+
+        /* Highlight selected option */
+        input[type="radio"]:checked + .option-content {
             font-weight: bold;
         }
-        .feedback {
-            margin-top: 12px;
-            padding: 12px;
-            border-radius: 5px;
-            font-weight: 600;
-            display: none;
-        }
-        .correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: block; }
-        .incorrect { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block; }
 
-        /* Matching Table */
-        .matching-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .matching-table th { background-color: #007bff; color: white; padding: 12px; }
-        .matching-table td { border: 1px solid #ddd; padding: 10px; }
-        input[type="text"] { padding: 8px; width: 80%; border: 1px solid #ccc; border-radius: 4px; }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .opt-prefix {
+            color: var(--primary);
+            font-weight: 900;
+            margin-right: 5px;
+        }
+
+        /* Buttons */
+        .check-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .check-btn:hover { background-color: #218838; }
+
+        /* Feedback and Explanation Area */
+        .result-area {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            animation: fadeIn 0.4s;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 0.95em;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 10px;
+            color: #4a5568;
+        }
+
+        .correct-bg { background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .wrong-bg { background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #edf2f7;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>BEE Fundamentals Guide</h1>
-        <p>Prepared By **G NAGARJUNA**</p>
+        <h2>EE Fundamentals - Exam Guide</h2>
+        <div class="author">Prepared By G NAGARJUNA</div>
     </header>
 
-    <div id="questionsContainer">
-        <div class="question-section">
-            <h2>I. Multiple Choice Questions (MCQs)</h2>
-            
-            <div class="question" id="q1">
-                <p>1. A single-phase induction motor is generally not self-starting because:</p>
-                <div class="option-group" data-answer="A">
-                    <label><input type="radio" name="q1" value="A"> <span class="option-text">A)</span> It produces a non-rotating field</label>
-                    <label><input type="radio" name="q1" value="B"> <span class="option-text">B)</span> high slip</label>
-                    <label><input type="radio" name="q1" value="C"> <span class="option-text">C)</span> low resistance</label>
-                    <label><input type="radio" name="q1" value="D"> <span class="option-text">D)</span> Its rotor is shored</label>
-                </div>
-                <button type="button" class="check-btn" onclick="checkMCQ('q1')">Check Answer</button>
-                <div class="feedback" id="feedback-q1"></div>
+    <div id="mcq-container">
+        <div class="question-card" id="q1">
+            <div class="question-text">1. A single-phase induction motor is generally not self-starting because:</div>
+            <div class="option-group">
+                <label class="option-label"><input type="radio" name="q1" value="A"> <span class="opt-prefix">A)</span> It produces a non-rotating field</label>
+                <label class="option-label"><input type="radio" name="q1" value="B"> <span class="opt-prefix">B)</span> High slip</label>
+                <label class="option-label"><input type="radio" name="q1" value="C"> <span class="opt-prefix">C)</span> Low resistance</label>
             </div>
-
-            <div class="question" id="q2">
-                <p>2. Which component is used for power factor improvement?</p>
-                <div class="option-group" data-answer="B">
-                    <label><input type="radio" name="q2" value="A"> <span class="option-text">A)</span> Inductor</label>
-                    <label><input type="radio" name="q2" value="B"> <span class="option-text">B)</span> Capacitor</label>
-                    <label><input type="radio" name="q2" value="C"> <span class="option-text">C)</span> Resistor</label>
-                    <label><input type="radio" name="q2" value="D"> <span class="option-text">D)</span> Transformer</label>
-                </div>
-                <button type="button" class="check-btn" onclick="checkMCQ('q2')">Check Answer</button>
-                <div class="feedback" id="feedback-q2"></div>
-            </div>
+            <button class="check-btn" onclick="validateMCQ('q1', 'A', 'Single-phase motors create a pulsating magnetic field rather than a rotating one. Since the field is stationary, it cannot produce starting torque.')">Check Answer</button>
+            <div class="result-area" id="res-q1"></div>
         </div>
 
-        <div class="question-section">
-            <h2>II. Fill in the Blanks</h2>
-            <div class="question" id="q21">
-                <p>1. The Cosine of the angle between voltage and current is known as ___________________.</p>
-                <input type="text" id="input-q21" placeholder="Enter answer here">
-                <button type="button" class="check-btn" onclick="checkFIB('q21', 'Power Factor')">Check Answer</button>
-                <div class="feedback" id="feedback-q21"></div>
+        <div class="question-card" id="q5">
+            <div class="question-text">5. The relation between line voltage (VL) and phase voltage (Vph) in a Star connection is:</div>
+            <div class="option-group">
+                <label class="option-label"><input type="radio" name="q5" value="A"> <span class="opt-prefix">A)</span> VL = 1.732 x Vph</label>
+                <label class="option-label"><input type="radio" name="q5" value="B"> <span class="opt-prefix">B)</span> VL = 3 x Vph</label>
+                <label class="option-label"><input type="radio" name="q5" value="C"> <span class="opt-prefix">C)</span> VL = Vph</label>
             </div>
+            <button class="check-btn" onclick="validateMCQ('q5', 'A', 'In Star (Y) connections, the line voltage is root 3 (1.732) times the phase voltage, whereas line current equals phase current.')">Check Answer</button>
+            <div class="result-area" id="res-q5"></div>
+        </div>
+
+        <div class="question-card" id="q15">
+            <div class="question-text">15. The relation between line current (IL) and phase current (Iph) in a Delta connection is:</div>
+            <div class="option-group">
+                <label class="option-label"><input type="radio" name="q15" value="A"> <span class="opt-prefix">A)</span> IL = Iph</label>
+                <label class="option-label"><input type="radio" name="q15" value="B"> <span class="opt-prefix">B)</span> IL = 1.732 x Iph</label>
+                <label class="option-label"><input type="radio" name="q15" value="C"> <span class="opt-prefix">C)</span> IL = 3 x Iph</label>
+            </div>
+            <button class="check-btn" onclick="validateMCQ('q15', 'B', 'In a Delta connection, line current is root 3 (1.732) times the phase current, while line voltage is equal to phase voltage.')">Check Answer</button>
+            <div class="result-area" id="res-q15"></div>
         </div>
     </div>
+
+    <h3>II. Fill in the Blanks</h3>
+    <div class="question-card" id="q21">
+        <div class="question-text">1. The Cosine of the angle between voltage and current is known as:</div>
+        <input type="text" id="in-q21" placeholder="Type your answer here...">
+        <button class="check-btn" onclick="validateFIB('q21', 'Power Factor', 'Power Factor (Cos Phi) indicates how effectively electrical power is being converted into useful work output.')">Check Answer</button>
+        <div class="result-area" id="res-q21"></div>
+    </div>
+
 </div>
 
 <script>
-    // Logic for MCQs
-    function checkMCQ(questionId) {
-        const container = document.getElementById(questionId);
-        const options = container.querySelector('.option-group');
-        const correctAnswer = options.getAttribute('data-answer');
-        const selected = container.querySelector('input[name="' + questionId + '"]:checked');
-        const feedback = document.getElementById('feedback-' + questionId);
+    function validateMCQ(qid, correctLetter, expl) {
+        const card = document.getElementById(qid);
+        const selected = card.querySelector('input[name="'+qid+'"]:checked');
+        const resArea = document.getElementById('res-' + qid);
 
         if (!selected) {
             alert("Please select an option first!");
             return;
         }
 
-        if (selected.value === correctAnswer) {
-            feedback.innerHTML = "Correct! The answer is " + correctAnswer;
-            feedback.className = "feedback correct";
+        resArea.style.display = "block";
+        if (selected.value === correctLetter) {
+            resArea.className = "result-area correct-bg";
+            resArea.innerHTML = "<strong>Correct!</strong>";
         } else {
-            feedback.innerHTML = "Incorrect. The correct answer is " + correctAnswer;
-            feedback.className = "feedback incorrect";
+            resArea.className = "result-area wrong-bg";
+            resArea.innerHTML = "<strong>Incorrect.</strong> The correct answer is " + correctLetter;
         }
-        feedback.style.display = "block";
+        
+        resArea.innerHTML += "<div class='explanation'><strong>Explanation:</strong> " + expl + "</div>";
     }
 
-    // Logic for Fill in the Blanks
-    function checkFIB(questionId, correctAnswer) {
-        const input = document.getElementById('input-' + questionId).value.trim();
-        const feedback = document.getElementById('feedback-' + questionId);
+    function validateFIB(qid, correctAns, expl) {
+        const input = document.getElementById('in-' + qid).value.trim();
+        const resArea = document.getElementById('res-' + qid);
 
-        if (input.toLowerCase() === correctAnswer.toLowerCase()) {
-            feedback.innerHTML = "Correct!";
-            feedback.className = "feedback correct";
-        } else {
-            feedback.innerHTML = "Incorrect. Correct answer: " + correctAnswer;
-            feedback.className = "feedback incorrect";
+        if (input === "") {
+            alert("Please type an answer!");
+            return;
         }
-        feedback.style.display = "block";
+
+        resArea.style.display = "block";
+        if (input.toLowerCase() === correctAns.toLowerCase()) {
+            resArea.className = "result-area correct-bg";
+            resArea.innerHTML = "<strong>Correct!</strong>";
+        } else {
+            resArea.className = "result-area wrong-bg";
+            resArea.innerHTML = "<strong>Incorrect.</strong> The answer is: " + correctAns;
+        }
+
+        resArea.innerHTML += "<div class='explanation'><strong>Explanation:</strong> " + expl + "</div>";
     }
 </script>
 
